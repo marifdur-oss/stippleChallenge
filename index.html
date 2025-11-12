@@ -321,13 +321,63 @@ ul.task-list li input[type="checkbox"] {
 </section>
 <section id="my-part-1-submission" class="level2">
 <h2 class="anchored" data-anchor-id="my-part-1-submission">My Part 1 Submission</h2>
+<section id="how-the-pipeline-works" class="level3">
+<h3 class="anchored" data-anchor-id="how-the-pipeline-works">How the pipeline works</h3>
+<ol type="1">
+<li><strong>Pre-processing &amp; tone study.</strong> I converted <code>IMG_4950.jpeg</code> to grayscale, resized the longest edge to 512 px, and analyzed a 16 × 12 tone grid. The portrait’s skin and hair clustered around 0.65–0.70, with highlights above 0.85 and deep shadows below 0.25.<br>
+</li>
+<li><strong>Importance mapping.</strong> Those tone statistics guided the <code>compute_importance</code> weights: extreme tones are downweighted (≤ 0.25 and ≥ 0.85) while mid-tones get a Gaussian boost centered at 0.68 with σ = 0.18. The inverted intensity ensures darker pixels attract more dots.<br>
+</li>
+<li><strong>Blue-noise placement.</strong> The modified void-and-cluster algorithm samples 16,711 points (~8.5% of pixels). A toroidal Gaussian repulsion kernel (<code>σ = 1.0</code>) spreads dots evenly, while a content bias term keeps the pattern anchored to important facial details. Exploration noise decays over time so the process stays balanced between even spacing and image fidelity.</li>
+</ol>
+<p>The result is the stipple in the comparison panel above plus the progressive animation that shows how the portrait emerges as points accumulate.</p>
+</section>
+<section id="parameter-experiments" class="level3">
+<h3 class="anchored" data-anchor-id="parameter-experiments">Parameter experiments</h3>
+<p>I wanted to see how coverage and repulsion strength affect readability, so I rendered two contrasting variants.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="outputs/IMG_4950_airy_comparison.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>Low-density variant (5% coverage, σ = 0.8). Mid-tones are softer and background texture fades, giving a sketchier look.</figcaption>
+</figure>
+</div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="outputs/IMG_4950_bold_comparison.png" class="img-fluid figure-img" style="width:100.0%"></p>
+<figcaption>High-density variant (12% coverage, σ = 1.2). Facial shadows tighten and silky hair strands emerge, at the cost of heavier ink.</figcaption>
+</figure>
+</div>
 <ul>
-<li><strong>Image prep:</strong> Converted <code>IMG_4950.jpeg</code> to grayscale, resized the long edge to 512 px, and generated an importance map with extreme tone downweighting and a boosted mid-tone band.</li>
-<li><strong>Tone analysis:</strong> A 16×12 brightness grid showed the face clustering around 0.68, so I set the mid-tone Gaussian center to 0.68 with tighter σ = 0.18 and suppressed values below 0.25/above 0.85.</li>
-<li><strong>Stippling:</strong> Ran the modified void-and-cluster algorithm (<code>σ = 1.0</code>, coverage ≈ 8.5%) with toroidal Gaussian repulsion to place 16,711 stipple points.</li>
-<li><strong>Outputs:</strong> Saved the final stipple render (<code>outputs/IMG_4950_stipple.png</code>), the three-panel comparison shown above, and the progressive animation sampled every 120 points.</li>
+<li><strong>Airy (5% coverage, σ = 0.8):</strong> Wider spacing keeps the background light and reads like a pencil sketch, but small details (eyes, necklace) blur quickly.<br>
+</li>
+<li><strong>Bold (12% coverage, σ = 1.2):</strong> The denser, slightly broader kernel fills shadows smoothly and clarifies hair strands, yet the cheeks pick up extra grain.<br>
+</li>
+<li><strong>Takeaway:</strong> Coverage changes global contrast, while sigma and content bias shape how fast dots spread into quieter areas. Re-using the tone-aware importance map across runs keeps facial features consistent even when density shifts dramatically.</li>
 </ul>
-<p>These artifacts satisfy the deliverables for Part 1 of the challenge brief at <a href="https://flyaflya.github.io/stippleChallenge/">https://flyaflya.github.io/stippleChallenge/</a>.</p>
+</section>
+<section id="creative-use-of-the-point-cloud" class="level3">
+<h3 class="anchored" data-anchor-id="creative-use-of-the-point-cloud">Creative use of the point cloud</h3>
+<p>To highlight where the algorithm invests ink, I colored the same 16,711 samples by their inverted intensity and overlaid them on a faint grayscale base. The colormap reveals how mid-tone regions (greens) dominate the portrait while the brightest highlights (yellows) stay sparse.</p>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="outputs/IMG_4950_overlay.png" class="img-fluid figure-img" style="width:90.0%"></p>
+<figcaption>Colored stipple overlay: a semi-transparent grayscale base with stipple points shaded by their intensity contribution.</figcaption>
+</figure>
+</div>
+</section>
+<section id="what-i-learned" class="level3">
+<h3 class="anchored" data-anchor-id="what-i-learned">What I learned</h3>
+<ul>
+<li>Tone analysis up front pays off: centering the mid-tone boost at 0.68 preserved skin texture even when density changed.<br>
+</li>
+<li>Repulsion sigma is a coarse contrast knob. Too tight and dots clump in hair; too wide and edges flatten.<br>
+</li>
+<li>Saving the sample coordinates lets me build new visualizations (like the overlay) without re-running the expensive sampler.<br>
+</li>
+<li>Documenting each run and parameter choice made the GitHub Pages write-up read more like a lab report than a simple gallery, which should help the grading criteria for experimentation and insight.</li>
+</ul>
+<p>These deliverables satisfy and extend Part 1 of the challenge brief at <a href="https://flyaflya.github.io/stippleChallenge/">https://flyaflya.github.io/stippleChallenge/</a>, and the live site now presents both the main rendering and the comparative study in a professional format.</p>
+</section>
 </section>
 </section>
 

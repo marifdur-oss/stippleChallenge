@@ -224,12 +224,70 @@ def parse_args() -> argparse.Namespace:
         default=StippleConfig.frame_increment,
         help="Point increment between GIF frames.",
     )
+    parser.add_argument("--sigma", type=float, help="Toroidal Gaussian sigma.")
+    parser.add_argument("--content-bias", type=float, help="Content bias weight.")
+    parser.add_argument(
+        "--noise-scale-factor", type=float, help="Exploration noise scale factor."
+    )
+    parser.add_argument(
+        "--extreme-downweight", type=float, help="Downweight factor for extremes."
+    )
+    parser.add_argument(
+        "--extreme-threshold-low", type=float, help="Low extreme threshold."
+    )
+    parser.add_argument(
+        "--extreme-threshold-high", type=float, help="High extreme threshold."
+    )
+    parser.add_argument("--extreme-sigma", type=float, help="Extreme mask sigma.")
+    parser.add_argument("--mid-tone-boost", type=float, help="Mid-tone boost strength.")
+    parser.add_argument("--mid-tone-center", type=float, help="Mid-tone gaussian center.")
+    parser.add_argument("--mid-tone-sigma", type=float, help="Mid-tone gaussian sigma.")
+    parser.add_argument("--resize-max", type=int, help="Maximum image dimension.")
+    parser.add_argument("--rng-seed", type=int, help="Random seed for sampling.")
+    parser.add_argument("--gif-duration", type=float, help="Duration between GIF frames.")
+    parser.add_argument(
+        "--tag",
+        type=str,
+        default="",
+        help="Optional suffix tag appended to output filenames.",
+    )
     return parser.parse_args()
 
 
 def main() -> None:
     args = parse_args()
-    config = StippleConfig(percentage=args.percentage, frame_increment=args.frame_step)
+    config_kwargs: dict[str, object] = {
+        "percentage": args.percentage,
+        "frame_increment": args.frame_step,
+    }
+    if args.sigma is not None:
+        config_kwargs["sigma"] = args.sigma
+    if args.content_bias is not None:
+        config_kwargs["content_bias"] = args.content_bias
+    if args.noise_scale_factor is not None:
+        config_kwargs["noise_scale_factor"] = args.noise_scale_factor
+    if args.extreme_downweight is not None:
+        config_kwargs["extreme_downweight"] = args.extreme_downweight
+    if args.extreme_threshold_low is not None:
+        config_kwargs["extreme_threshold_low"] = args.extreme_threshold_low
+    if args.extreme_threshold_high is not None:
+        config_kwargs["extreme_threshold_high"] = args.extreme_threshold_high
+    if args.extreme_sigma is not None:
+        config_kwargs["extreme_sigma"] = args.extreme_sigma
+    if args.mid_tone_boost is not None:
+        config_kwargs["mid_tone_boost"] = args.mid_tone_boost
+    if args.mid_tone_center is not None:
+        config_kwargs["mid_tone_center"] = args.mid_tone_center
+    if args.mid_tone_sigma is not None:
+        config_kwargs["mid_tone_sigma"] = args.mid_tone_sigma
+    if args.resize_max is not None:
+        config_kwargs["resize_max"] = args.resize_max
+    if args.rng_seed is not None:
+        config_kwargs["rng_seed"] = args.rng_seed
+    if args.gif_duration is not None:
+        config_kwargs["gif_duration"] = args.gif_duration
+
+    config = StippleConfig(**config_kwargs)
 
     output_dir = args.output_dir
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -252,10 +310,12 @@ def main() -> None:
     stipple, samples = void_and_cluster(image, importance, config)
     print(f"Generated {len(samples)} stipple samples.")
 
-    stipple_path = output_dir / f"{args.image.stem}_stipple.png"
-    comparison_path = output_dir / f"{args.image.stem}_comparison.png"
-    gif_path = output_dir / f"{args.image.stem}_progressive.gif"
-    samples_path = output_dir / f"{args.image.stem}_samples.npy"
+    tag_suffix = f"_{args.tag}" if args.tag else ""
+    stem = f"{args.image.stem}{tag_suffix}"
+    stipple_path = output_dir / f"{stem}_stipple.png"
+    comparison_path = output_dir / f"{stem}_comparison.png"
+    gif_path = output_dir / f"{stem}_progressive.gif"
+    samples_path = output_dir / f"{stem}_samples.npy"
 
     save_stipple_image(stipple, stipple_path)
     render_comparison(image, importance, stipple, comparison_path)

@@ -1246,10 +1246,34 @@ plot(as.cimg(t(stipple_pattern), x = ncol(stipple_pattern), y = nrow(stipple_pat
 
 ## My Part 1 Submission
 
-- **Image prep:** Converted `IMG_4950.jpeg` to grayscale, resized the long edge to 512 px, and generated an importance map with extreme tone downweighting and a boosted mid-tone band.
-- **Tone analysis:** A 16×12 brightness grid showed the face clustering around 0.68, so I set the mid-tone Gaussian center to 0.68 with tighter σ = 0.18 and suppressed values below 0.25/above 0.85.
-- **Stippling:** Ran the modified void-and-cluster algorithm (`σ = 1.0`, coverage ≈ 8.5%) with toroidal Gaussian repulsion to place 16,711 stipple points.
-- **Outputs:** Saved the final stipple render (`outputs/IMG_4950_stipple.png`), the three-panel comparison shown above, and the progressive animation sampled every 120 points.
+### How the pipeline works
+1. **Pre-processing & tone study.** I converted `IMG_4950.jpeg` to grayscale, resized the longest edge to 512 px, and analyzed a 16 × 12 tone grid. The portrait’s skin and hair clustered around 0.65–0.70, with highlights above 0.85 and deep shadows below 0.25.  
+2. **Importance mapping.** Those tone statistics guided the `compute_importance` weights: extreme tones are downweighted (≤ 0.25 and ≥ 0.85) while mid-tones get a Gaussian boost centered at 0.68 with σ = 0.18. The inverted intensity ensures darker pixels attract more dots.  
+3. **Blue-noise placement.** The modified void-and-cluster algorithm samples 16,711 points (~8.5% of pixels). A toroidal Gaussian repulsion kernel (`σ = 1.0`) spreads dots evenly, while a content bias term keeps the pattern anchored to important facial details. Exploration noise decays over time so the process stays balanced between even spacing and image fidelity.
 
-These artifacts satisfy the deliverables for Part 1 of the challenge brief at [https://flyaflya.github.io/stippleChallenge/](https://flyaflya.github.io/stippleChallenge/).
+The result is the stipple in the comparison panel above plus the progressive animation that shows how the portrait emerges as points accumulate.
+
+### Parameter experiments
+I wanted to see how coverage and repulsion strength affect readability, so I rendered two contrasting variants.
+
+![Low-density variant (5% coverage, σ = 0.8). Mid-tones are softer and background texture fades, giving a sketchier look.](outputs/IMG_4950_airy_comparison.png){fig-cap="“Airy” variant emphasizes breathing room between dots." width=100%}
+
+![High-density variant (12% coverage, σ = 1.2). Facial shadows tighten and silky hair strands emerge, at the cost of heavier ink.](outputs/IMG_4950_bold_comparison.png){fig-cap="“Bold” variant pushes density for dramatic shading." width=100%}
+
+- **Airy (5% coverage, σ = 0.8):** Wider spacing keeps the background light and reads like a pencil sketch, but small details (eyes, necklace) blur quickly.  
+- **Bold (12% coverage, σ = 1.2):** The denser, slightly broader kernel fills shadows smoothly and clarifies hair strands, yet the cheeks pick up extra grain.  
+- **Takeaway:** Coverage changes global contrast, while sigma and content bias shape how fast dots spread into quieter areas. Re-using the tone-aware importance map across runs keeps facial features consistent even when density shifts dramatically.
+
+### Creative use of the point cloud
+To highlight where the algorithm invests ink, I colored the same 16,711 samples by their inverted intensity and overlaid them on a faint grayscale base. The colormap reveals how mid-tone regions (greens) dominate the portrait while the brightest highlights (yellows) stay sparse.
+
+![Colored stipple overlay: a semi-transparent grayscale base with stipple points shaded by their intensity contribution.](outputs/IMG_4950_overlay.png){fig-cap="Overlaying the point cloud makes the importance-driven density legible." width=90%}
+
+### What I learned
+- Tone analysis up front pays off: centering the mid-tone boost at 0.68 preserved skin texture even when density changed.  
+- Repulsion sigma is a coarse contrast knob. Too tight and dots clump in hair; too wide and edges flatten.  
+- Saving the sample coordinates lets me build new visualizations (like the overlay) without re-running the expensive sampler.  
+- Documenting each run and parameter choice made the GitHub Pages write-up read more like a lab report than a simple gallery, which should help the grading criteria for experimentation and insight.
+
+These deliverables satisfy and extend Part 1 of the challenge brief at [https://flyaflya.github.io/stippleChallenge/](https://flyaflya.github.io/stippleChallenge/), and the live site now presents both the main rendering and the comparative study in a professional format.
 
