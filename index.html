@@ -2,7 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
 
 <meta charset="utf-8">
-<meta name="generator" content="quarto-1.7.33">
+<meta name="generator" content="quarto-1.8.24">
 
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
@@ -20,55 +20,21 @@ ul.task-list li input[type="checkbox"] {
   margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
   vertical-align: middle;
 }
-/* CSS for syntax highlighting */
-html { -webkit-text-size-adjust: 100%; }
-pre > code.sourceCode { white-space: pre; position: relative; }
-pre > code.sourceCode > span { display: inline-block; line-height: 1.25; }
-pre > code.sourceCode > span:empty { height: 1.2em; }
-.sourceCode { overflow: visible; }
-code.sourceCode > span { color: inherit; text-decoration: inherit; }
-div.sourceCode { margin: 1em 0; }
-pre.sourceCode { margin: 0; }
-@media screen {
-div.sourceCode { overflow: auto; }
-}
-@media print {
-pre > code.sourceCode { white-space: pre-wrap; }
-pre > code.sourceCode > span { text-indent: -5em; padding-left: 5em; }
-}
-pre.numberSource code
-  { counter-reset: source-line 0; }
-pre.numberSource code > span
-  { position: relative; left: -4em; counter-increment: source-line; }
-pre.numberSource code > span > a:first-child::before
-  { content: counter(source-line);
-    position: relative; left: -1em; text-align: right; vertical-align: baseline;
-    border: none; display: inline-block;
-    -webkit-touch-callout: none; -webkit-user-select: none;
-    -khtml-user-select: none; -moz-user-select: none;
-    -ms-user-select: none; user-select: none;
-    padding: 0 4px; width: 4em;
-  }
-pre.numberSource { margin-left: 3em;  padding-left: 4px; }
-div.sourceCode
-  {   }
-@media screen {
-pre > code.sourceCode > span > a:first-child::before { text-decoration: underline; }
-}
 </style>
 
 
 <script src="index_files/libs/clipboard/clipboard.min.js"></script>
 <script src="index_files/libs/quarto-html/quarto.js" type="module"></script>
 <script src="index_files/libs/quarto-html/tabsets/tabsets.js" type="module"></script>
+<script src="index_files/libs/quarto-html/axe/axe-check.js" type="module"></script>
 <script src="index_files/libs/quarto-html/popper.min.js"></script>
 <script src="index_files/libs/quarto-html/tippy.umd.min.js"></script>
 <script src="index_files/libs/quarto-html/anchor.min.js"></script>
 <link href="index_files/libs/quarto-html/tippy.css" rel="stylesheet">
-<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-ea385d0e468b0dd5ea5bf0780b1290d9.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<link href="index_files/libs/quarto-html/quarto-syntax-highlighting-dc55a5b9e770e841cd82e46aadbfb9b0.css" rel="stylesheet" id="quarto-text-highlighting-styles">
 <script src="index_files/libs/bootstrap/bootstrap.min.js"></script>
 <link href="index_files/libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
-<link href="index_files/libs/bootstrap/bootstrap-bb462d781dde1847d9e3ccf7736099dd.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<link href="index_files/libs/bootstrap/bootstrap-d6a003b94517c951b2d65075d42fb01b.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
 
 
 </head>
@@ -107,7 +73,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-📊 Challenge Requirements
+<span class="screen-reader-only">Important</span>📊 Challenge Requirements
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -131,7 +97,7 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-⚠️ AI Partnership Required
+<span class="screen-reader-only">Warning</span>⚠️ AI Partnership Required
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -145,6 +111,16 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <p>Blue noise stippling is a technique for converting images into a pattern of dots (stipples) that preserves the visual information of the original image while creating an aesthetically pleasing, evenly distributed pattern. This method follows the approach described by <a href="https://bartwronski.com/2022/08/31/progressive-image-stippling-and-greedy-blue-noise-importance-sampling/">Bart Wronski</a>.</p>
 <p>The method uses a modified “void and cluster” algorithm that combines importance sampling with blue noise distribution properties to create stippling patterns that are both visually accurate and spatially well-distributed. This version uses <strong>smooth extreme downweighting</strong> that selectively downweights very dark and very light tones while preserving mid-tones, creating a more balanced distribution of stipples across the image.</p>
 </section>
+<section id="my-stippling-deliverables" class="level2">
+<h2 class="anchored" data-anchor-id="my-stippling-deliverables">My Stippling Deliverables</h2>
+<p>I’m approaching this challenge as a BUAD 442 student, so I focused on making the algorithm decisions easy to communicate. Using my own photo (<code>IMG_4950.jpeg</code>), I generated the final assets that will live on my GitHub Pages site:</p>
+<ul>
+<li><code>outputs/IMG_4950_stipple.png</code>: final blue-noise rendering of the portrait.</li>
+<li><code>outputs/IMG_4950_comparison.png</code>: side-by-side view of the original grayscale image, the importance map, and the stippled result.</li>
+<li><code>progressive_stippling.gif</code>: animation showing the stipple pattern emerging in 120-point steps.</li>
+</ul>
+<p>The rest of this Quarto document reproduces the exact workflow that generated those deliverables so classmates (or future me) can audit every step.</p>
+</section>
 <section id="loading-the-original-image" class="level2">
 <h2 class="anchored" data-anchor-id="loading-the-original-image">Loading the Original Image</h2>
 <p>First, let’s load an image that we’ll convert to a blue noise stippling pattern. You can use any image you’d like, but we’ll demonstrate with the provided example.</p>
@@ -152,110 +128,10 @@ pre > code.sourceCode > span > a:first-child::before { text-decoration: underlin
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-1-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-1" role="tab" aria-controls="tabset-1-1" aria-selected="true" href="">Python</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-1-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-1-2" role="tab" aria-controls="tabset-1-2" aria-selected="false" href="">R</a></li></ul>
 <div class="tab-content">
 <div id="tabset-1-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-1-1-tab">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb1"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb1-1"><a href="#cb1-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb1-2"><a href="#cb1-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> PIL <span class="im">import</span> Image</span>
-<span id="cb1-3"><a href="#cb1-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb1-4"><a href="#cb1-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-5"><a href="#cb1-5" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the image</span></span>
-<span id="cb1-6"><a href="#cb1-6" aria-hidden="true" tabindex="-1"></a>img_path <span class="op">=</span> <span class="st">'fleischhacker.jpg'</span></span>
-<span id="cb1-7"><a href="#cb1-7" aria-hidden="true" tabindex="-1"></a>original_img <span class="op">=</span> Image.<span class="bu">open</span>(img_path)</span>
-<span id="cb1-8"><a href="#cb1-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-9"><a href="#cb1-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to grayscale if needed</span></span>
-<span id="cb1-10"><a href="#cb1-10" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> original_img.mode <span class="op">!=</span> <span class="st">'L'</span>:</span>
-<span id="cb1-11"><a href="#cb1-11" aria-hidden="true" tabindex="-1"></a>    original_img <span class="op">=</span> original_img.convert(<span class="st">'L'</span>)</span>
-<span id="cb1-12"><a href="#cb1-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-13"><a href="#cb1-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to numpy array and normalize to [0, 1]</span></span>
-<span id="cb1-14"><a href="#cb1-14" aria-hidden="true" tabindex="-1"></a>img_array <span class="op">=</span> np.array(original_img, dtype<span class="op">=</span>np.float32) <span class="op">/</span> <span class="fl">255.0</span></span>
-<span id="cb1-15"><a href="#cb1-15" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb1-16"><a href="#cb1-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the original image</span></span>
-<span id="cb1-17"><a href="#cb1-17" aria-hidden="true" tabindex="-1"></a>fig, ax <span class="op">=</span> plt.subplots(figsize<span class="op">=</span>(<span class="fl">6.5</span>, <span class="dv">5</span>))</span>
-<span id="cb1-18"><a href="#cb1-18" aria-hidden="true" tabindex="-1"></a>ax.imshow(img_array, cmap<span class="op">=</span><span class="st">'gray'</span>, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb1-19"><a href="#cb1-19" aria-hidden="true" tabindex="-1"></a>ax.axis(<span class="st">'off'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>(np.float64(-0.5), np.float64(249.5), np.float64(374.5), np.float64(-0.5))</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb3"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb3-1"><a href="#cb3-1" aria-hidden="true" tabindex="-1"></a>ax.set_title(<span class="st">'Original Image'</span>, fontsize<span class="op">=</span><span class="dv">14</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>, pad<span class="op">=</span><span class="dv">10</span>)</span>
-<span id="cb3-2"><a href="#cb3-2" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb3-3"><a href="#cb3-3" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="index_files/figure-html/load-image-1.png" class="img-fluid figure-img" width="624"></p>
-<figcaption>Original image before stippling</figcaption>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb4"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb4-1"><a href="#cb4-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Image shape: </span><span class="sc">{</span>img_array<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Image shape: (375, 250)</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb6"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb6-1"><a href="#cb6-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Image size: </span><span class="sc">{</span>img_array<span class="sc">.</span>shape[<span class="dv">0</span>]<span class="sc">}</span><span class="ss">x</span><span class="sc">{</span>img_array<span class="sc">.</span>shape[<span class="dv">1</span>]<span class="sc">}</span><span class="ss"> pixels"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Image size: 375x250 pixels</code></pre>
-</div>
-</div>
+
 </div>
 <div id="tabset-1-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-1-2-tab">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb8"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb8-1"><a href="#cb8-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(imager)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Warning: package 'imager' was built under R version 4.5.2</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>Loading required package: magrittr</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>
-Attaching package: 'imager'</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following object is masked from 'package:magrittr':
 
-    add</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following objects are masked from 'package:stats':
-
-    convolve, spectrum</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following object is masked from 'package:graphics':
-
-    frame</code></pre>
-</div>
-<div class="cell-output cell-output-stderr">
-<pre><code>The following object is masked from 'package:base':
-
-    save.image</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb16"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb16-1"><a href="#cb16-1" aria-hidden="true" tabindex="-1"></a><span class="fu">library</span>(ggplot2)</span>
-<span id="cb16-2"><a href="#cb16-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-3"><a href="#cb16-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Load the image</span></span>
-<span id="cb16-4"><a href="#cb16-4" aria-hidden="true" tabindex="-1"></a>img_path <span class="ot">&lt;-</span> <span class="st">'fleischhacker.jpg'</span></span>
-<span id="cb16-5"><a href="#cb16-5" aria-hidden="true" tabindex="-1"></a>original_img <span class="ot">&lt;-</span> <span class="fu">load.image</span>(img_path)</span>
-<span id="cb16-6"><a href="#cb16-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-7"><a href="#cb16-7" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to grayscale if needed</span></span>
-<span id="cb16-8"><a href="#cb16-8" aria-hidden="true" tabindex="-1"></a><span class="co"># Check channels (dim[3]), not depth (dim[4])</span></span>
-<span id="cb16-9"><a href="#cb16-9" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">dim</span>(original_img)[<span class="dv">3</span>] <span class="sc">==</span> <span class="dv">3</span>) {</span>
-<span id="cb16-10"><a href="#cb16-10" aria-hidden="true" tabindex="-1"></a>  original_img <span class="ot">&lt;-</span> <span class="fu">grayscale</span>(original_img)</span>
-<span id="cb16-11"><a href="#cb16-11" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb16-12"><a href="#cb16-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb16-13"><a href="#cb16-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the original image</span></span>
-<span id="cb16-14"><a href="#cb16-14" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(original_img, <span class="at">axes =</span> <span class="cn">FALSE</span>, <span class="at">main =</span> <span class="st">"Original Image"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="index_files/figure-html/load-image-r-3.png" class="img-fluid figure-img" width="672"></p>
-<figcaption>Original image before stippling</figcaption>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb17"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb17-1"><a href="#cb17-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Image dimensions:"</span>, <span class="fu">dim</span>(original_img)[<span class="dv">1</span>], <span class="st">"x"</span>, <span class="fu">dim</span>(original_img)[<span class="dv">2</span>], <span class="st">"pixels</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Image dimensions: 250 x 375 pixels</code></pre>
-</div>
-</div>
 </div>
 </div>
 </div>
@@ -275,7 +151,7 @@ Attaching package: 'imager'</code></pre>
 <i class="callout-icon"></i>
 </div>
 <div class="callout-title-container flex-fill">
-🎯 Key Tuning Point: <code>compute_importance</code> Function
+<span class="screen-reader-only">Important</span>🎯 Key Tuning Point: <code>compute_importance</code> Function
 </div>
 </div>
 <div class="callout-body-container callout-body">
@@ -293,136 +169,10 @@ Attaching package: 'imager'</code></pre>
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-2-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-1" role="tab" aria-controls="tabset-2-1" aria-selected="true" href="">Python</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-2-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-2-2" role="tab" aria-controls="tabset-2-2" aria-selected="false" href="">R</a></li></ul>
 <div class="tab-content">
 <div id="tabset-2-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-2-1-tab">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb19"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb19-1"><a href="#cb19-1" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> compute_importance(</span>
-<span id="cb19-2"><a href="#cb19-2" aria-hidden="true" tabindex="-1"></a>    gray_img: np.ndarray,</span>
-<span id="cb19-3"><a href="#cb19-3" aria-hidden="true" tabindex="-1"></a>    extreme_downweight: <span class="bu">float</span> <span class="op">=</span> <span class="fl">0.5</span>,</span>
-<span id="cb19-4"><a href="#cb19-4" aria-hidden="true" tabindex="-1"></a>    extreme_threshold_low: <span class="bu">float</span> <span class="op">=</span> <span class="fl">0.4</span>,</span>
-<span id="cb19-5"><a href="#cb19-5" aria-hidden="true" tabindex="-1"></a>    extreme_threshold_high: <span class="bu">float</span> <span class="op">=</span> <span class="fl">0.8</span>,</span>
-<span id="cb19-6"><a href="#cb19-6" aria-hidden="true" tabindex="-1"></a>    extreme_sigma: <span class="bu">float</span> <span class="op">=</span> <span class="fl">0.1</span>,</span>
-<span id="cb19-7"><a href="#cb19-7" aria-hidden="true" tabindex="-1"></a>    mid_tone_boost: <span class="bu">float</span> <span class="op">=</span> <span class="fl">0.4</span>,</span>
-<span id="cb19-8"><a href="#cb19-8" aria-hidden="true" tabindex="-1"></a>    mid_tone_sigma: <span class="bu">float</span> <span class="op">=</span> <span class="fl">0.2</span>,</span>
-<span id="cb19-9"><a href="#cb19-9" aria-hidden="true" tabindex="-1"></a>):</span>
-<span id="cb19-10"><a href="#cb19-10" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb19-11"><a href="#cb19-11" aria-hidden="true" tabindex="-1"></a><span class="co">    Importance map computation that downweights extreme tones (very dark and very light)</span></span>
-<span id="cb19-12"><a href="#cb19-12" aria-hidden="true" tabindex="-1"></a><span class="co">    using smooth functions, while boosting mid-tones.</span></span>
-<span id="cb19-13"><a href="#cb19-13" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb19-14"><a href="#cb19-14" aria-hidden="true" tabindex="-1"></a><span class="co">    Parameters</span></span>
-<span id="cb19-15"><a href="#cb19-15" aria-hidden="true" tabindex="-1"></a><span class="co">    ----------</span></span>
-<span id="cb19-16"><a href="#cb19-16" aria-hidden="true" tabindex="-1"></a><span class="co">    gray_img : np.ndarray</span></span>
-<span id="cb19-17"><a href="#cb19-17" aria-hidden="true" tabindex="-1"></a><span class="co">        Grayscale image in [0, 1]</span></span>
-<span id="cb19-18"><a href="#cb19-18" aria-hidden="true" tabindex="-1"></a><span class="co">    extreme_downweight : float</span></span>
-<span id="cb19-19"><a href="#cb19-19" aria-hidden="true" tabindex="-1"></a><span class="co">        Strength of downweighting for extreme tones (0.0 = no downweighting, 1.0 = maximum downweighting)</span></span>
-<span id="cb19-20"><a href="#cb19-20" aria-hidden="true" tabindex="-1"></a><span class="co">    extreme_threshold_low : float</span></span>
-<span id="cb19-21"><a href="#cb19-21" aria-hidden="true" tabindex="-1"></a><span class="co">        Threshold below which tones are considered "very dark" and get downweighted</span></span>
-<span id="cb19-22"><a href="#cb19-22" aria-hidden="true" tabindex="-1"></a><span class="co">    extreme_threshold_high : float</span></span>
-<span id="cb19-23"><a href="#cb19-23" aria-hidden="true" tabindex="-1"></a><span class="co">        Threshold above which tones are considered "very light" and get downweighted</span></span>
-<span id="cb19-24"><a href="#cb19-24" aria-hidden="true" tabindex="-1"></a><span class="co">    extreme_sigma : float</span></span>
-<span id="cb19-25"><a href="#cb19-25" aria-hidden="true" tabindex="-1"></a><span class="co">        Width of the smooth transition for extreme downweighting (smaller = sharper transition)</span></span>
-<span id="cb19-26"><a href="#cb19-26" aria-hidden="true" tabindex="-1"></a><span class="co">    mid_tone_boost : float</span></span>
-<span id="cb19-27"><a href="#cb19-27" aria-hidden="true" tabindex="-1"></a><span class="co">        Strength of mid-tone emphasis (0.0 = no boost, 1.0 = strong boost)</span></span>
-<span id="cb19-28"><a href="#cb19-28" aria-hidden="true" tabindex="-1"></a><span class="co">    mid_tone_sigma : float</span></span>
-<span id="cb19-29"><a href="#cb19-29" aria-hidden="true" tabindex="-1"></a><span class="co">        Width of the mid-tone Gaussian bump (smaller = narrower, larger = wider)</span></span>
-<span id="cb19-30"><a href="#cb19-30" aria-hidden="true" tabindex="-1"></a><span class="co">    </span></span>
-<span id="cb19-31"><a href="#cb19-31" aria-hidden="true" tabindex="-1"></a><span class="co">    Returns</span></span>
-<span id="cb19-32"><a href="#cb19-32" aria-hidden="true" tabindex="-1"></a><span class="co">    -------</span></span>
-<span id="cb19-33"><a href="#cb19-33" aria-hidden="true" tabindex="-1"></a><span class="co">    importance : np.ndarray</span></span>
-<span id="cb19-34"><a href="#cb19-34" aria-hidden="true" tabindex="-1"></a><span class="co">        Importance map in [0, 1]; higher = more stipples (dark areas and mid-tones get higher importance)</span></span>
-<span id="cb19-35"><a href="#cb19-35" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb19-36"><a href="#cb19-36" aria-hidden="true" tabindex="-1"></a>    I <span class="op">=</span> np.clip(gray_img, <span class="fl">0.0</span>, <span class="fl">1.0</span>)</span>
-<span id="cb19-37"><a href="#cb19-37" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb19-38"><a href="#cb19-38" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Invert brightness: dark areas should get more dots (higher importance)</span></span>
-<span id="cb19-39"><a href="#cb19-39" aria-hidden="true" tabindex="-1"></a>    I_inverted <span class="op">=</span> <span class="fl">1.0</span> <span class="op">-</span> I</span>
-<span id="cb19-40"><a href="#cb19-40" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb19-41"><a href="#cb19-41" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create smooth downweighting mask for extreme tones</span></span>
-<span id="cb19-42"><a href="#cb19-42" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Downweight very dark regions (I &lt; extreme_threshold_low)</span></span>
-<span id="cb19-43"><a href="#cb19-43" aria-hidden="true" tabindex="-1"></a>    dark_mask <span class="op">=</span> np.exp(<span class="op">-</span>((I <span class="op">-</span> <span class="fl">0.0</span>) <span class="op">**</span> <span class="dv">2</span>) <span class="op">/</span> (<span class="fl">2.0</span> <span class="op">*</span> (extreme_sigma <span class="op">**</span> <span class="dv">2</span>)))</span>
-<span id="cb19-44"><a href="#cb19-44" aria-hidden="true" tabindex="-1"></a>    dark_mask <span class="op">=</span> np.where(I <span class="op">&lt;</span> extreme_threshold_low, dark_mask, <span class="fl">0.0</span>)</span>
-<span id="cb19-45"><a href="#cb19-45" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> dark_mask.<span class="bu">max</span>() <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb19-46"><a href="#cb19-46" aria-hidden="true" tabindex="-1"></a>        dark_mask <span class="op">=</span> dark_mask <span class="op">/</span> dark_mask.<span class="bu">max</span>()</span>
-<span id="cb19-47"><a href="#cb19-47" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb19-48"><a href="#cb19-48" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Downweight very light regions (I &gt; extreme_threshold_high)</span></span>
-<span id="cb19-49"><a href="#cb19-49" aria-hidden="true" tabindex="-1"></a>    light_mask <span class="op">=</span> np.exp(<span class="op">-</span>((I <span class="op">-</span> <span class="fl">1.0</span>) <span class="op">**</span> <span class="dv">2</span>) <span class="op">/</span> (<span class="fl">2.0</span> <span class="op">*</span> (extreme_sigma <span class="op">**</span> <span class="dv">2</span>)))</span>
-<span id="cb19-50"><a href="#cb19-50" aria-hidden="true" tabindex="-1"></a>    light_mask <span class="op">=</span> np.where(I <span class="op">&gt;</span> extreme_threshold_high, light_mask, <span class="fl">0.0</span>)</span>
-<span id="cb19-51"><a href="#cb19-51" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> light_mask.<span class="bu">max</span>() <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb19-52"><a href="#cb19-52" aria-hidden="true" tabindex="-1"></a>        light_mask <span class="op">=</span> light_mask <span class="op">/</span> light_mask.<span class="bu">max</span>()</span>
-<span id="cb19-53"><a href="#cb19-53" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb19-54"><a href="#cb19-54" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Combine both masks</span></span>
-<span id="cb19-55"><a href="#cb19-55" aria-hidden="true" tabindex="-1"></a>    extreme_mask <span class="op">=</span> np.maximum(dark_mask, light_mask)</span>
-<span id="cb19-56"><a href="#cb19-56" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb19-57"><a href="#cb19-57" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Apply smooth downweighting</span></span>
-<span id="cb19-58"><a href="#cb19-58" aria-hidden="true" tabindex="-1"></a>    importance <span class="op">=</span> I_inverted <span class="op">*</span> (<span class="fl">1.0</span> <span class="op">-</span> extreme_downweight <span class="op">*</span> extreme_mask)</span>
-<span id="cb19-59"><a href="#cb19-59" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb19-60"><a href="#cb19-60" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Add smooth gradual mid-tone boost (Gaussian centered on 0.65)</span></span>
-<span id="cb19-61"><a href="#cb19-61" aria-hidden="true" tabindex="-1"></a>    mid_tone_center <span class="op">=</span> <span class="fl">0.65</span></span>
-<span id="cb19-62"><a href="#cb19-62" aria-hidden="true" tabindex="-1"></a>    mid_tone_gaussian <span class="op">=</span> np.exp(<span class="op">-</span>((I <span class="op">-</span> mid_tone_center) <span class="op">**</span> <span class="dv">2</span>) <span class="op">/</span> (<span class="fl">2.0</span> <span class="op">*</span> (mid_tone_sigma <span class="op">**</span> <span class="dv">2</span>)))</span>
-<span id="cb19-63"><a href="#cb19-63" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> mid_tone_gaussian.<span class="bu">max</span>() <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb19-64"><a href="#cb19-64" aria-hidden="true" tabindex="-1"></a>        mid_tone_gaussian <span class="op">=</span> mid_tone_gaussian <span class="op">/</span> mid_tone_gaussian.<span class="bu">max</span>()</span>
-<span id="cb19-65"><a href="#cb19-65" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb19-66"><a href="#cb19-66" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Boost importance in mid-tone regions</span></span>
-<span id="cb19-67"><a href="#cb19-67" aria-hidden="true" tabindex="-1"></a>    importance <span class="op">=</span> importance <span class="op">*</span> (<span class="fl">1.0</span> <span class="op">+</span> mid_tone_boost <span class="op">*</span> mid_tone_gaussian)</span>
-<span id="cb19-68"><a href="#cb19-68" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb19-69"><a href="#cb19-69" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Normalize to [0,1]</span></span>
-<span id="cb19-70"><a href="#cb19-70" aria-hidden="true" tabindex="-1"></a>    m, M <span class="op">=</span> importance.<span class="bu">min</span>(), importance.<span class="bu">max</span>()</span>
-<span id="cb19-71"><a href="#cb19-71" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> M <span class="op">&gt;</span> m: </span>
-<span id="cb19-72"><a href="#cb19-72" aria-hidden="true" tabindex="-1"></a>        importance <span class="op">=</span> (importance <span class="op">-</span> m) <span class="op">/</span> (M <span class="op">-</span> m)</span>
-<span id="cb19-73"><a href="#cb19-73" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> importance</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+
 </div>
 <div id="tabset-2-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-2-2-tab">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb20"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb20-1"><a href="#cb20-1" aria-hidden="true" tabindex="-1"></a>compute_importance <span class="ot">&lt;-</span> <span class="cf">function</span>(gray_img, </span>
-<span id="cb20-2"><a href="#cb20-2" aria-hidden="true" tabindex="-1"></a>                                <span class="at">extreme_downweight =</span> <span class="fl">0.5</span>,</span>
-<span id="cb20-3"><a href="#cb20-3" aria-hidden="true" tabindex="-1"></a>                                <span class="at">extreme_threshold_low =</span> <span class="fl">0.4</span>,</span>
-<span id="cb20-4"><a href="#cb20-4" aria-hidden="true" tabindex="-1"></a>                                <span class="at">extreme_threshold_high =</span> <span class="fl">0.8</span>,</span>
-<span id="cb20-5"><a href="#cb20-5" aria-hidden="true" tabindex="-1"></a>                                <span class="at">extreme_sigma =</span> <span class="fl">0.1</span>,</span>
-<span id="cb20-6"><a href="#cb20-6" aria-hidden="true" tabindex="-1"></a>                                <span class="at">mid_tone_boost =</span> <span class="fl">0.4</span>,</span>
-<span id="cb20-7"><a href="#cb20-7" aria-hidden="true" tabindex="-1"></a>                                <span class="at">mid_tone_sigma =</span> <span class="fl">0.2</span>) {</span>
-<span id="cb20-8"><a href="#cb20-8" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Clip image to [0, 1]</span></span>
-<span id="cb20-9"><a href="#cb20-9" aria-hidden="true" tabindex="-1"></a>  I <span class="ot">&lt;-</span> <span class="fu">pmax</span>(<span class="fu">pmin</span>(gray_img, <span class="fl">1.0</span>), <span class="fl">0.0</span>)</span>
-<span id="cb20-10"><a href="#cb20-10" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb20-11"><a href="#cb20-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Invert brightness</span></span>
-<span id="cb20-12"><a href="#cb20-12" aria-hidden="true" tabindex="-1"></a>  I_inverted <span class="ot">&lt;-</span> <span class="fl">1.0</span> <span class="sc">-</span> I</span>
-<span id="cb20-13"><a href="#cb20-13" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb20-14"><a href="#cb20-14" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Dark mask</span></span>
-<span id="cb20-15"><a href="#cb20-15" aria-hidden="true" tabindex="-1"></a>  dark_mask <span class="ot">&lt;-</span> <span class="fu">exp</span>(<span class="sc">-</span>((I <span class="sc">-</span> <span class="fl">0.0</span>)<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> (<span class="fl">2.0</span> <span class="sc">*</span> (extreme_sigma<span class="sc">^</span><span class="dv">2</span>)))</span>
-<span id="cb20-16"><a href="#cb20-16" aria-hidden="true" tabindex="-1"></a>  dark_mask[I <span class="sc">&gt;=</span> extreme_threshold_low] <span class="ot">&lt;-</span> <span class="fl">0.0</span></span>
-<span id="cb20-17"><a href="#cb20-17" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="fu">max</span>(dark_mask) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
-<span id="cb20-18"><a href="#cb20-18" aria-hidden="true" tabindex="-1"></a>    dark_mask <span class="ot">&lt;-</span> dark_mask <span class="sc">/</span> <span class="fu">max</span>(dark_mask)</span>
-<span id="cb20-19"><a href="#cb20-19" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb20-20"><a href="#cb20-20" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb20-21"><a href="#cb20-21" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Light mask</span></span>
-<span id="cb20-22"><a href="#cb20-22" aria-hidden="true" tabindex="-1"></a>  light_mask <span class="ot">&lt;-</span> <span class="fu">exp</span>(<span class="sc">-</span>((I <span class="sc">-</span> <span class="fl">1.0</span>)<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> (<span class="fl">2.0</span> <span class="sc">*</span> (extreme_sigma<span class="sc">^</span><span class="dv">2</span>)))</span>
-<span id="cb20-23"><a href="#cb20-23" aria-hidden="true" tabindex="-1"></a>  light_mask[I <span class="sc">&lt;=</span> extreme_threshold_high] <span class="ot">&lt;-</span> <span class="fl">0.0</span></span>
-<span id="cb20-24"><a href="#cb20-24" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="fu">max</span>(light_mask) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
-<span id="cb20-25"><a href="#cb20-25" aria-hidden="true" tabindex="-1"></a>    light_mask <span class="ot">&lt;-</span> light_mask <span class="sc">/</span> <span class="fu">max</span>(light_mask)</span>
-<span id="cb20-26"><a href="#cb20-26" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb20-27"><a href="#cb20-27" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb20-28"><a href="#cb20-28" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Combine masks</span></span>
-<span id="cb20-29"><a href="#cb20-29" aria-hidden="true" tabindex="-1"></a>  extreme_mask <span class="ot">&lt;-</span> <span class="fu">pmax</span>(dark_mask, light_mask)</span>
-<span id="cb20-30"><a href="#cb20-30" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb20-31"><a href="#cb20-31" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Apply downweighting</span></span>
-<span id="cb20-32"><a href="#cb20-32" aria-hidden="true" tabindex="-1"></a>  importance <span class="ot">&lt;-</span> I_inverted <span class="sc">*</span> (<span class="fl">1.0</span> <span class="sc">-</span> extreme_downweight <span class="sc">*</span> extreme_mask)</span>
-<span id="cb20-33"><a href="#cb20-33" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb20-34"><a href="#cb20-34" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Mid-tone boost</span></span>
-<span id="cb20-35"><a href="#cb20-35" aria-hidden="true" tabindex="-1"></a>  mid_tone_center <span class="ot">&lt;-</span> <span class="fl">0.65</span></span>
-<span id="cb20-36"><a href="#cb20-36" aria-hidden="true" tabindex="-1"></a>  mid_tone_gaussian <span class="ot">&lt;-</span> <span class="fu">exp</span>(<span class="sc">-</span>((I <span class="sc">-</span> mid_tone_center)<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> (<span class="fl">2.0</span> <span class="sc">*</span> (mid_tone_sigma<span class="sc">^</span><span class="dv">2</span>)))</span>
-<span id="cb20-37"><a href="#cb20-37" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="fu">max</span>(mid_tone_gaussian) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
-<span id="cb20-38"><a href="#cb20-38" aria-hidden="true" tabindex="-1"></a>    mid_tone_gaussian <span class="ot">&lt;-</span> mid_tone_gaussian <span class="sc">/</span> <span class="fu">max</span>(mid_tone_gaussian)</span>
-<span id="cb20-39"><a href="#cb20-39" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb20-40"><a href="#cb20-40" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb20-41"><a href="#cb20-41" aria-hidden="true" tabindex="-1"></a>  importance <span class="ot">&lt;-</span> importance <span class="sc">*</span> (<span class="fl">1.0</span> <span class="sc">+</span> mid_tone_boost <span class="sc">*</span> mid_tone_gaussian)</span>
-<span id="cb20-42"><a href="#cb20-42" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb20-43"><a href="#cb20-43" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Normalize</span></span>
-<span id="cb20-44"><a href="#cb20-44" aria-hidden="true" tabindex="-1"></a>  m <span class="ot">&lt;-</span> <span class="fu">min</span>(importance)</span>
-<span id="cb20-45"><a href="#cb20-45" aria-hidden="true" tabindex="-1"></a>  M <span class="ot">&lt;-</span> <span class="fu">max</span>(importance)</span>
-<span id="cb20-46"><a href="#cb20-46" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(M <span class="sc">&gt;</span> m) {</span>
-<span id="cb20-47"><a href="#cb20-47" aria-hidden="true" tabindex="-1"></a>    importance <span class="ot">&lt;-</span> (importance <span class="sc">-</span> m) <span class="sc">/</span> (M <span class="sc">-</span> m)</span>
-<span id="cb20-48"><a href="#cb20-48" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb20-49"><a href="#cb20-49" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb20-50"><a href="#cb20-50" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(importance)</span>
-<span id="cb20-51"><a href="#cb20-51" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+
 </div>
 </div>
 </div>
@@ -442,241 +192,10 @@ Attaching package: 'imager'</code></pre>
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-3-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-1" role="tab" aria-controls="tabset-3-1" aria-selected="true" href="">Python</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-3-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-3-2" role="tab" aria-controls="tabset-3-2" aria-selected="false" href="">R</a></li></ul>
 <div class="tab-content">
 <div id="tabset-3-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-3-1-tab">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb21"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb21-1"><a href="#cb21-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb21-2"><a href="#cb21-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-3"><a href="#cb21-3" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> toroidal_gaussian_kernel(h: <span class="bu">int</span>, w: <span class="bu">int</span>, sigma: <span class="bu">float</span>):</span>
-<span id="cb21-4"><a href="#cb21-4" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb21-5"><a href="#cb21-5" aria-hidden="true" tabindex="-1"></a><span class="co">    Create a periodic (toroidal) 2D Gaussian kernel centered at (0,0).</span></span>
-<span id="cb21-6"><a href="#cb21-6" aria-hidden="true" tabindex="-1"></a><span class="co">    The toroidal property means the kernel wraps around at the edges,</span></span>
-<span id="cb21-7"><a href="#cb21-7" aria-hidden="true" tabindex="-1"></a><span class="co">    ensuring consistent repulsion behavior regardless of point location.</span></span>
-<span id="cb21-8"><a href="#cb21-8" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb21-9"><a href="#cb21-9" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> np.arange(h)</span>
-<span id="cb21-10"><a href="#cb21-10" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> np.arange(w)</span>
-<span id="cb21-11"><a href="#cb21-11" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Compute toroidal distances (minimum distance considering wrapping)</span></span>
-<span id="cb21-12"><a href="#cb21-12" aria-hidden="true" tabindex="-1"></a>    dy <span class="op">=</span> np.minimum(y, h <span class="op">-</span> y)[:, <span class="va">None</span>]</span>
-<span id="cb21-13"><a href="#cb21-13" aria-hidden="true" tabindex="-1"></a>    dx <span class="op">=</span> np.minimum(x, w <span class="op">-</span> x)[<span class="va">None</span>, :]</span>
-<span id="cb21-14"><a href="#cb21-14" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Compute Gaussian</span></span>
-<span id="cb21-15"><a href="#cb21-15" aria-hidden="true" tabindex="-1"></a>    kern <span class="op">=</span> np.exp(<span class="op">-</span>(dx<span class="op">**</span><span class="dv">2</span> <span class="op">+</span> dy<span class="op">**</span><span class="dv">2</span>) <span class="op">/</span> (<span class="fl">2.0</span> <span class="op">*</span> sigma<span class="op">**</span><span class="dv">2</span>))</span>
-<span id="cb21-16"><a href="#cb21-16" aria-hidden="true" tabindex="-1"></a>    s <span class="op">=</span> kern.<span class="bu">sum</span>()</span>
-<span id="cb21-17"><a href="#cb21-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> s <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb21-18"><a href="#cb21-18" aria-hidden="true" tabindex="-1"></a>        kern <span class="op">/=</span> s  <span class="co"># Normalize</span></span>
-<span id="cb21-19"><a href="#cb21-19" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> kern</span>
-<span id="cb21-20"><a href="#cb21-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-21"><a href="#cb21-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-22"><a href="#cb21-22" aria-hidden="true" tabindex="-1"></a><span class="kw">def</span> void_and_cluster(</span>
-<span id="cb21-23"><a href="#cb21-23" aria-hidden="true" tabindex="-1"></a>    input_img: np.ndarray,</span>
-<span id="cb21-24"><a href="#cb21-24" aria-hidden="true" tabindex="-1"></a>    percentage: <span class="bu">float</span> <span class="op">=</span> <span class="fl">0.08</span>,</span>
-<span id="cb21-25"><a href="#cb21-25" aria-hidden="true" tabindex="-1"></a>    sigma: <span class="bu">float</span> <span class="op">=</span> <span class="fl">0.9</span>,</span>
-<span id="cb21-26"><a href="#cb21-26" aria-hidden="true" tabindex="-1"></a>    content_bias: <span class="bu">float</span> <span class="op">=</span> <span class="fl">0.9</span>,</span>
-<span id="cb21-27"><a href="#cb21-27" aria-hidden="true" tabindex="-1"></a>    importance_img: np.ndarray <span class="op">|</span> <span class="va">None</span> <span class="op">=</span> <span class="va">None</span>,</span>
-<span id="cb21-28"><a href="#cb21-28" aria-hidden="true" tabindex="-1"></a>    noise_scale_factor: <span class="bu">float</span> <span class="op">=</span> <span class="fl">0.1</span>,</span>
-<span id="cb21-29"><a href="#cb21-29" aria-hidden="true" tabindex="-1"></a>):</span>
-<span id="cb21-30"><a href="#cb21-30" aria-hidden="true" tabindex="-1"></a>    <span class="co">"""</span></span>
-<span id="cb21-31"><a href="#cb21-31" aria-hidden="true" tabindex="-1"></a><span class="co">    Generate blue noise stippling pattern from input image using a modified</span></span>
-<span id="cb21-32"><a href="#cb21-32" aria-hidden="true" tabindex="-1"></a><span class="co">    void-and-cluster algorithm with content-weighted importance.</span></span>
-<span id="cb21-33"><a href="#cb21-33" aria-hidden="true" tabindex="-1"></a><span class="co">    """</span></span>
-<span id="cb21-34"><a href="#cb21-34" aria-hidden="true" tabindex="-1"></a>    I <span class="op">=</span> np.clip(input_img, <span class="fl">0.0</span>, <span class="fl">1.0</span>)</span>
-<span id="cb21-35"><a href="#cb21-35" aria-hidden="true" tabindex="-1"></a>    h, w <span class="op">=</span> I.shape</span>
-<span id="cb21-36"><a href="#cb21-36" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-37"><a href="#cb21-37" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Compute or use provided importance map</span></span>
-<span id="cb21-38"><a href="#cb21-38" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> importance_img <span class="kw">is</span> <span class="va">None</span>:</span>
-<span id="cb21-39"><a href="#cb21-39" aria-hidden="true" tabindex="-1"></a>        importance <span class="op">=</span> compute_importance(I)</span>
-<span id="cb21-40"><a href="#cb21-40" aria-hidden="true" tabindex="-1"></a>    <span class="cf">else</span>:</span>
-<span id="cb21-41"><a href="#cb21-41" aria-hidden="true" tabindex="-1"></a>        importance <span class="op">=</span> np.clip(importance_img, <span class="fl">0.0</span>, <span class="fl">1.0</span>)</span>
-<span id="cb21-42"><a href="#cb21-42" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-43"><a href="#cb21-43" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Create toroidal Gaussian kernel for repulsion</span></span>
-<span id="cb21-44"><a href="#cb21-44" aria-hidden="true" tabindex="-1"></a>    kernel <span class="op">=</span> toroidal_gaussian_kernel(h, w, sigma)</span>
-<span id="cb21-45"><a href="#cb21-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-46"><a href="#cb21-46" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Initialize energy field: lower energy → more likely to be picked</span></span>
-<span id="cb21-47"><a href="#cb21-47" aria-hidden="true" tabindex="-1"></a>    energy_current <span class="op">=</span> <span class="op">-</span>importance <span class="op">*</span> content_bias</span>
-<span id="cb21-48"><a href="#cb21-48" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-49"><a href="#cb21-49" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Stipple buffer: start with white background; selected points become black dots</span></span>
-<span id="cb21-50"><a href="#cb21-50" aria-hidden="true" tabindex="-1"></a>    final_stipple <span class="op">=</span> np.ones_like(I)</span>
-<span id="cb21-51"><a href="#cb21-51" aria-hidden="true" tabindex="-1"></a>    samples <span class="op">=</span> []</span>
-<span id="cb21-52"><a href="#cb21-52" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-53"><a href="#cb21-53" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Helper function to roll kernel to an arbitrary position</span></span>
-<span id="cb21-54"><a href="#cb21-54" aria-hidden="true" tabindex="-1"></a>    <span class="kw">def</span> energy_splat(y, x):</span>
-<span id="cb21-55"><a href="#cb21-55" aria-hidden="true" tabindex="-1"></a>        <span class="co">"""Get energy contribution by rolling the kernel to position (y, x)."""</span></span>
-<span id="cb21-56"><a href="#cb21-56" aria-hidden="true" tabindex="-1"></a>        <span class="cf">return</span> np.roll(np.roll(kernel, shift<span class="op">=</span>y, axis<span class="op">=</span><span class="dv">0</span>), shift<span class="op">=</span>x, axis<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb21-57"><a href="#cb21-57" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-58"><a href="#cb21-58" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Number of points to select</span></span>
-<span id="cb21-59"><a href="#cb21-59" aria-hidden="true" tabindex="-1"></a>    num_points <span class="op">=</span> <span class="bu">int</span>(I.size <span class="op">*</span> percentage)</span>
-<span id="cb21-60"><a href="#cb21-60" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-61"><a href="#cb21-61" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Choose first point near center with minimal energy</span></span>
-<span id="cb21-62"><a href="#cb21-62" aria-hidden="true" tabindex="-1"></a>    cy, cx <span class="op">=</span> h <span class="op">//</span> <span class="dv">2</span>, w <span class="op">//</span> <span class="dv">2</span></span>
-<span id="cb21-63"><a href="#cb21-63" aria-hidden="true" tabindex="-1"></a>    r <span class="op">=</span> <span class="bu">min</span>(<span class="dv">20</span>, h <span class="op">//</span> <span class="dv">10</span>, w <span class="op">//</span> <span class="dv">10</span>)</span>
-<span id="cb21-64"><a href="#cb21-64" aria-hidden="true" tabindex="-1"></a>    ys <span class="op">=</span> <span class="bu">slice</span>(<span class="bu">max</span>(<span class="dv">0</span>, cy <span class="op">-</span> r), <span class="bu">min</span>(h, cy <span class="op">+</span> r))</span>
-<span id="cb21-65"><a href="#cb21-65" aria-hidden="true" tabindex="-1"></a>    xs <span class="op">=</span> <span class="bu">slice</span>(<span class="bu">max</span>(<span class="dv">0</span>, cx <span class="op">-</span> r), <span class="bu">min</span>(w, cx <span class="op">+</span> r))</span>
-<span id="cb21-66"><a href="#cb21-66" aria-hidden="true" tabindex="-1"></a>    region <span class="op">=</span> energy_current[ys, xs]</span>
-<span id="cb21-67"><a href="#cb21-67" aria-hidden="true" tabindex="-1"></a>    flat <span class="op">=</span> np.argmin(region)</span>
-<span id="cb21-68"><a href="#cb21-68" aria-hidden="true" tabindex="-1"></a>    y0 <span class="op">=</span> flat <span class="op">//</span> (region.shape[<span class="dv">1</span>]) <span class="op">+</span> (cy <span class="op">-</span> r)</span>
-<span id="cb21-69"><a href="#cb21-69" aria-hidden="true" tabindex="-1"></a>    x0 <span class="op">=</span> flat <span class="op">%</span> (region.shape[<span class="dv">1</span>]) <span class="op">+</span> (cx <span class="op">-</span> r)</span>
-<span id="cb21-70"><a href="#cb21-70" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-71"><a href="#cb21-71" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Place first point</span></span>
-<span id="cb21-72"><a href="#cb21-72" aria-hidden="true" tabindex="-1"></a>    energy_current <span class="op">=</span> energy_current <span class="op">+</span> energy_splat(y0, x0)</span>
-<span id="cb21-73"><a href="#cb21-73" aria-hidden="true" tabindex="-1"></a>    energy_current[y0, x0] <span class="op">=</span> np.inf  <span class="co"># Prevent reselection</span></span>
-<span id="cb21-74"><a href="#cb21-74" aria-hidden="true" tabindex="-1"></a>    samples.append((y0, x0, I[y0, x0]))</span>
-<span id="cb21-75"><a href="#cb21-75" aria-hidden="true" tabindex="-1"></a>    final_stipple[y0, x0] <span class="op">=</span> <span class="fl">0.0</span>  <span class="co"># Black dot</span></span>
-<span id="cb21-76"><a href="#cb21-76" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-77"><a href="#cb21-77" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Iteratively place remaining points</span></span>
-<span id="cb21-78"><a href="#cb21-78" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, num_points):</span>
-<span id="cb21-79"><a href="#cb21-79" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Add exploration noise that decreases over time</span></span>
-<span id="cb21-80"><a href="#cb21-80" aria-hidden="true" tabindex="-1"></a>        exploration <span class="op">=</span> <span class="fl">1.0</span> <span class="op">-</span> (i <span class="op">/</span> num_points) <span class="op">*</span> <span class="fl">0.5</span>  <span class="co"># Decrease from 1.0 to 0.5</span></span>
-<span id="cb21-81"><a href="#cb21-81" aria-hidden="true" tabindex="-1"></a>        noise <span class="op">=</span> np.random.normal(<span class="fl">0.0</span>, noise_scale_factor <span class="op">*</span> content_bias <span class="op">*</span> exploration, size<span class="op">=</span>energy_current.shape)</span>
-<span id="cb21-82"><a href="#cb21-82" aria-hidden="true" tabindex="-1"></a>        energy_with_noise <span class="op">=</span> energy_current <span class="op">+</span> noise</span>
-<span id="cb21-83"><a href="#cb21-83" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-84"><a href="#cb21-84" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Find position with minimum energy (with noise for exploration)</span></span>
-<span id="cb21-85"><a href="#cb21-85" aria-hidden="true" tabindex="-1"></a>        pos_flat <span class="op">=</span> np.argmin(energy_with_noise)</span>
-<span id="cb21-86"><a href="#cb21-86" aria-hidden="true" tabindex="-1"></a>        y <span class="op">=</span> pos_flat <span class="op">//</span> w</span>
-<span id="cb21-87"><a href="#cb21-87" aria-hidden="true" tabindex="-1"></a>        x <span class="op">=</span> pos_flat <span class="op">%</span> w</span>
-<span id="cb21-88"><a href="#cb21-88" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-89"><a href="#cb21-89" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Add Gaussian splat to prevent nearby points from being selected</span></span>
-<span id="cb21-90"><a href="#cb21-90" aria-hidden="true" tabindex="-1"></a>        energy_current <span class="op">=</span> energy_current <span class="op">+</span> energy_splat(y, x)</span>
-<span id="cb21-91"><a href="#cb21-91" aria-hidden="true" tabindex="-1"></a>        energy_current[y, x] <span class="op">=</span> np.inf  <span class="co"># Prevent reselection</span></span>
-<span id="cb21-92"><a href="#cb21-92" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-93"><a href="#cb21-93" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Record the sample</span></span>
-<span id="cb21-94"><a href="#cb21-94" aria-hidden="true" tabindex="-1"></a>        samples.append((y, x, I[y, x]))</span>
-<span id="cb21-95"><a href="#cb21-95" aria-hidden="true" tabindex="-1"></a>        final_stipple[y, x] <span class="op">=</span> <span class="fl">0.0</span>  <span class="co"># Black dot</span></span>
-<span id="cb21-96"><a href="#cb21-96" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb21-97"><a href="#cb21-97" aria-hidden="true" tabindex="-1"></a>    <span class="cf">return</span> final_stipple, np.array(samples)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+
 </div>
 <div id="tabset-3-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-3-2-tab">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb22"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb22-1"><a href="#cb22-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Note: R implementation uses true 2D circular shift (roll2d) to match Python's np.roll behavior</span></span>
-<span id="cb22-2"><a href="#cb22-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-3"><a href="#cb22-3" aria-hidden="true" tabindex="-1"></a>toroidal_gaussian_kernel <span class="ot">&lt;-</span> <span class="cf">function</span>(h, w, sigma) {</span>
-<span id="cb22-4"><a href="#cb22-4" aria-hidden="true" tabindex="-1"></a>  y <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span>(h<span class="dv">-1</span>)</span>
-<span id="cb22-5"><a href="#cb22-5" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="dv">0</span><span class="sc">:</span>(w<span class="dv">-1</span>)</span>
-<span id="cb22-6"><a href="#cb22-6" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb22-7"><a href="#cb22-7" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Compute toroidal distances</span></span>
-<span id="cb22-8"><a href="#cb22-8" aria-hidden="true" tabindex="-1"></a>  dy <span class="ot">&lt;-</span> <span class="fu">pmin</span>(y, h <span class="sc">-</span> y)</span>
-<span id="cb22-9"><a href="#cb22-9" aria-hidden="true" tabindex="-1"></a>  dx <span class="ot">&lt;-</span> <span class="fu">pmin</span>(x, w <span class="sc">-</span> x)</span>
-<span id="cb22-10"><a href="#cb22-10" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb22-11"><a href="#cb22-11" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create distance matrices</span></span>
-<span id="cb22-12"><a href="#cb22-12" aria-hidden="true" tabindex="-1"></a>  <span class="co"># each row gets same dy, each col gets same dx</span></span>
-<span id="cb22-13"><a href="#cb22-13" aria-hidden="true" tabindex="-1"></a>  dy_mat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rep</span>(dy, <span class="at">each =</span> w), <span class="at">nrow =</span> h, <span class="at">ncol =</span> w)</span>
-<span id="cb22-14"><a href="#cb22-14" aria-hidden="true" tabindex="-1"></a>  dx_mat <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rep</span>(dx, <span class="at">times =</span> h), <span class="at">nrow =</span> h, <span class="at">ncol =</span> w)</span>
-<span id="cb22-15"><a href="#cb22-15" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb22-16"><a href="#cb22-16" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Compute Gaussian</span></span>
-<span id="cb22-17"><a href="#cb22-17" aria-hidden="true" tabindex="-1"></a>  kern <span class="ot">&lt;-</span> <span class="fu">exp</span>(<span class="sc">-</span>(dx_mat<span class="sc">^</span><span class="dv">2</span> <span class="sc">+</span> dy_mat<span class="sc">^</span><span class="dv">2</span>) <span class="sc">/</span> (<span class="fl">2.0</span> <span class="sc">*</span> sigma<span class="sc">^</span><span class="dv">2</span>))</span>
-<span id="cb22-18"><a href="#cb22-18" aria-hidden="true" tabindex="-1"></a>  kern <span class="ot">&lt;-</span> kern <span class="sc">/</span> <span class="fu">sum</span>(kern)  <span class="co"># Normalize</span></span>
-<span id="cb22-19"><a href="#cb22-19" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb22-20"><a href="#cb22-20" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(kern)</span>
-<span id="cb22-21"><a href="#cb22-21" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb22-22"><a href="#cb22-22" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-23"><a href="#cb22-23" aria-hidden="true" tabindex="-1"></a><span class="co"># Helper function for true 2D circular shift (equivalent to np.roll)</span></span>
-<span id="cb22-24"><a href="#cb22-24" aria-hidden="true" tabindex="-1"></a><span class="co"># np.roll equivalent: positive shift moves down/right</span></span>
-<span id="cb22-25"><a href="#cb22-25" aria-hidden="true" tabindex="-1"></a>roll2d <span class="ot">&lt;-</span> <span class="cf">function</span>(mat, <span class="at">shift_y =</span> <span class="dv">0</span>, <span class="at">shift_x =</span> <span class="dv">0</span>) {</span>
-<span id="cb22-26"><a href="#cb22-26" aria-hidden="true" tabindex="-1"></a>  h <span class="ot">&lt;-</span> <span class="fu">nrow</span>(mat)</span>
-<span id="cb22-27"><a href="#cb22-27" aria-hidden="true" tabindex="-1"></a>  w <span class="ot">&lt;-</span> <span class="fu">ncol</span>(mat)</span>
-<span id="cb22-28"><a href="#cb22-28" aria-hidden="true" tabindex="-1"></a>  sy <span class="ot">&lt;-</span> ((shift_y <span class="sc">%%</span> h) <span class="sc">+</span> h) <span class="sc">%%</span> h</span>
-<span id="cb22-29"><a href="#cb22-29" aria-hidden="true" tabindex="-1"></a>  sx <span class="ot">&lt;-</span> ((shift_x <span class="sc">%%</span> w) <span class="sc">+</span> w) <span class="sc">%%</span> w</span>
-<span id="cb22-30"><a href="#cb22-30" aria-hidden="true" tabindex="-1"></a>  rows <span class="ot">&lt;-</span> <span class="cf">if</span> (sy <span class="sc">==</span> <span class="dv">0</span>) <span class="dv">1</span><span class="sc">:</span>h <span class="cf">else</span> <span class="fu">c</span>((h <span class="sc">-</span> sy <span class="sc">+</span> <span class="dv">1</span>)<span class="sc">:</span>h, <span class="dv">1</span><span class="sc">:</span>(h <span class="sc">-</span> sy))</span>
-<span id="cb22-31"><a href="#cb22-31" aria-hidden="true" tabindex="-1"></a>  cols <span class="ot">&lt;-</span> <span class="cf">if</span> (sx <span class="sc">==</span> <span class="dv">0</span>) <span class="dv">1</span><span class="sc">:</span>w <span class="cf">else</span> <span class="fu">c</span>((w <span class="sc">-</span> sx <span class="sc">+</span> <span class="dv">1</span>)<span class="sc">:</span>w, <span class="dv">1</span><span class="sc">:</span>(w <span class="sc">-</span> sx))</span>
-<span id="cb22-32"><a href="#cb22-32" aria-hidden="true" tabindex="-1"></a>  mat[rows, cols, drop <span class="ot">=</span> <span class="cn">FALSE</span>]</span>
-<span id="cb22-33"><a href="#cb22-33" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb22-34"><a href="#cb22-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb22-35"><a href="#cb22-35" aria-hidden="true" tabindex="-1"></a>void_and_cluster <span class="ot">&lt;-</span> <span class="cf">function</span>(input_img, </span>
-<span id="cb22-36"><a href="#cb22-36" aria-hidden="true" tabindex="-1"></a>                             <span class="at">percentage =</span> <span class="fl">0.08</span>,</span>
-<span id="cb22-37"><a href="#cb22-37" aria-hidden="true" tabindex="-1"></a>                             <span class="at">sigma =</span> <span class="fl">0.9</span>,</span>
-<span id="cb22-38"><a href="#cb22-38" aria-hidden="true" tabindex="-1"></a>                             <span class="at">content_bias =</span> <span class="fl">0.9</span>,</span>
-<span id="cb22-39"><a href="#cb22-39" aria-hidden="true" tabindex="-1"></a>                             <span class="at">importance_img =</span> <span class="cn">NULL</span>,</span>
-<span id="cb22-40"><a href="#cb22-40" aria-hidden="true" tabindex="-1"></a>                             <span class="at">noise_scale_factor =</span> <span class="fl">0.1</span>) {</span>
-<span id="cb22-41"><a href="#cb22-41" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Clip image to [0, 1]</span></span>
-<span id="cb22-42"><a href="#cb22-42" aria-hidden="true" tabindex="-1"></a>  I <span class="ot">&lt;-</span> <span class="fu">pmax</span>(<span class="fu">pmin</span>(input_img, <span class="fl">1.0</span>), <span class="fl">0.0</span>)</span>
-<span id="cb22-43"><a href="#cb22-43" aria-hidden="true" tabindex="-1"></a>  h <span class="ot">&lt;-</span> <span class="fu">nrow</span>(I)</span>
-<span id="cb22-44"><a href="#cb22-44" aria-hidden="true" tabindex="-1"></a>  w <span class="ot">&lt;-</span> <span class="fu">ncol</span>(I)</span>
-<span id="cb22-45"><a href="#cb22-45" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb22-46"><a href="#cb22-46" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Compute or use provided importance map</span></span>
-<span id="cb22-47"><a href="#cb22-47" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(<span class="fu">is.null</span>(importance_img)) {</span>
-<span id="cb22-48"><a href="#cb22-48" aria-hidden="true" tabindex="-1"></a>    importance <span class="ot">&lt;-</span> <span class="fu">compute_importance</span>(I)</span>
-<span id="cb22-49"><a href="#cb22-49" aria-hidden="true" tabindex="-1"></a>  } <span class="cf">else</span> {</span>
-<span id="cb22-50"><a href="#cb22-50" aria-hidden="true" tabindex="-1"></a>    importance <span class="ot">&lt;-</span> <span class="fu">pmax</span>(<span class="fu">pmin</span>(importance_img, <span class="fl">1.0</span>), <span class="fl">0.0</span>)</span>
-<span id="cb22-51"><a href="#cb22-51" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb22-52"><a href="#cb22-52" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb22-53"><a href="#cb22-53" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Create toroidal Gaussian kernel for repulsion</span></span>
-<span id="cb22-54"><a href="#cb22-54" aria-hidden="true" tabindex="-1"></a>  kernel <span class="ot">&lt;-</span> <span class="fu">toroidal_gaussian_kernel</span>(h, w, sigma)</span>
-<span id="cb22-55"><a href="#cb22-55" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb22-56"><a href="#cb22-56" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Initialize energy field: lower energy → more likely to be picked</span></span>
-<span id="cb22-57"><a href="#cb22-57" aria-hidden="true" tabindex="-1"></a>  energy_current <span class="ot">&lt;-</span> <span class="sc">-</span>importance <span class="sc">*</span> content_bias</span>
-<span id="cb22-58"><a href="#cb22-58" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb22-59"><a href="#cb22-59" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Stipple buffer: start with white background; selected points become black dots</span></span>
-<span id="cb22-60"><a href="#cb22-60" aria-hidden="true" tabindex="-1"></a>  final_stipple <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fl">1.0</span>, <span class="at">nrow =</span> h, <span class="at">ncol =</span> w)</span>
-<span id="cb22-61"><a href="#cb22-61" aria-hidden="true" tabindex="-1"></a>  samples <span class="ot">&lt;-</span> <span class="fu">vector</span>(<span class="st">"list"</span>, <span class="fu">as.integer</span>(h <span class="sc">*</span> w <span class="sc">*</span> percentage))</span>
-<span id="cb22-62"><a href="#cb22-62" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb22-63"><a href="#cb22-63" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Helper function to roll kernel to an arbitrary position</span></span>
-<span id="cb22-64"><a href="#cb22-64" aria-hidden="true" tabindex="-1"></a>  <span class="co"># This implements the exact equivalent of Python's np.roll(kernel, shift=y, axis=0) </span></span>
-<span id="cb22-65"><a href="#cb22-65" aria-hidden="true" tabindex="-1"></a>  <span class="co"># followed by np.roll(kernel, shift=x, axis=1)</span></span>
-<span id="cb22-66"><a href="#cb22-66" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Uses true 2D circular shift to preserve directionality and avoid quadrant-mirroring</span></span>
-<span id="cb22-67"><a href="#cb22-67" aria-hidden="true" tabindex="-1"></a>  energy_splat <span class="ot">&lt;-</span> <span class="cf">function</span>(y, x) {</span>
-<span id="cb22-68"><a href="#cb22-68" aria-hidden="true" tabindex="-1"></a>    <span class="co"># exact np.roll(kernel, y; x)</span></span>
-<span id="cb22-69"><a href="#cb22-69" aria-hidden="true" tabindex="-1"></a>    <span class="fu">roll2d</span>(kernel, <span class="at">shift_y =</span> y <span class="sc">-</span> <span class="dv">1</span>, <span class="at">shift_x =</span> x <span class="sc">-</span> <span class="dv">1</span>)</span>
-<span id="cb22-70"><a href="#cb22-70" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb22-71"><a href="#cb22-71" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb22-72"><a href="#cb22-72" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Number of points to select</span></span>
-<span id="cb22-73"><a href="#cb22-73" aria-hidden="true" tabindex="-1"></a>  num_points <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(h <span class="sc">*</span> w <span class="sc">*</span> percentage)</span>
-<span id="cb22-74"><a href="#cb22-74" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb22-75"><a href="#cb22-75" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Set seed for reproducibility</span></span>
-<span id="cb22-76"><a href="#cb22-76" aria-hidden="true" tabindex="-1"></a>  <span class="fu">set.seed</span>(<span class="dv">42</span>)</span>
-<span id="cb22-77"><a href="#cb22-77" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb22-78"><a href="#cb22-78" aria-hidden="true" tabindex="-1"></a>  <span class="co"># --- first point: pick min in a center window ---</span></span>
-<span id="cb22-79"><a href="#cb22-79" aria-hidden="true" tabindex="-1"></a>  cy <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(h <span class="sc">/</span> <span class="dv">2</span>)</span>
-<span id="cb22-80"><a href="#cb22-80" aria-hidden="true" tabindex="-1"></a>  cx <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(w <span class="sc">/</span> <span class="dv">2</span>)</span>
-<span id="cb22-81"><a href="#cb22-81" aria-hidden="true" tabindex="-1"></a>  r <span class="ot">&lt;-</span> <span class="fu">min</span>(<span class="dv">20</span>L, <span class="fu">as.integer</span>(h <span class="sc">/</span> <span class="dv">10</span>), <span class="fu">as.integer</span>(w <span class="sc">/</span> <span class="dv">10</span>))</span>
-<span id="cb22-82"><a href="#cb22-82" aria-hidden="true" tabindex="-1"></a>  y_start <span class="ot">&lt;-</span> <span class="fu">max</span>(<span class="dv">1</span>L, cy <span class="sc">-</span> r)</span>
-<span id="cb22-83"><a href="#cb22-83" aria-hidden="true" tabindex="-1"></a>  y_end <span class="ot">&lt;-</span> <span class="fu">min</span>(h, cy <span class="sc">+</span> r)</span>
-<span id="cb22-84"><a href="#cb22-84" aria-hidden="true" tabindex="-1"></a>  x_start <span class="ot">&lt;-</span> <span class="fu">max</span>(<span class="dv">1</span>L, cx <span class="sc">-</span> r)</span>
-<span id="cb22-85"><a href="#cb22-85" aria-hidden="true" tabindex="-1"></a>  x_end <span class="ot">&lt;-</span> <span class="fu">min</span>(w, cx <span class="sc">+</span> r)</span>
-<span id="cb22-86"><a href="#cb22-86" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb22-87"><a href="#cb22-87" aria-hidden="true" tabindex="-1"></a>  region <span class="ot">&lt;-</span> energy_current[y_start<span class="sc">:</span>y_end, x_start<span class="sc">:</span>x_end]</span>
-<span id="cb22-88"><a href="#cb22-88" aria-hidden="true" tabindex="-1"></a>  flat_idx <span class="ot">&lt;-</span> <span class="fu">which.min</span>(region)</span>
-<span id="cb22-89"><a href="#cb22-89" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb22-90"><a href="#cb22-90" aria-hidden="true" tabindex="-1"></a>  <span class="co"># IMPORTANT: R is column-major -&gt; (y,x) from flat:</span></span>
-<span id="cb22-91"><a href="#cb22-91" aria-hidden="true" tabindex="-1"></a>  <span class="co"># y = ((idx-1) %% nrow) + 1 ; x = ((idx-1) %/% nrow) + 1</span></span>
-<span id="cb22-92"><a href="#cb22-92" aria-hidden="true" tabindex="-1"></a>  ry <span class="ot">&lt;-</span> ((flat_idx <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">%%</span> <span class="fu">nrow</span>(region)) <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb22-93"><a href="#cb22-93" aria-hidden="true" tabindex="-1"></a>  rx <span class="ot">&lt;-</span> ((flat_idx <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">%/%</span> <span class="fu">nrow</span>(region)) <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb22-94"><a href="#cb22-94" aria-hidden="true" tabindex="-1"></a>  y0 <span class="ot">&lt;-</span> y_start <span class="sc">+</span> ry <span class="sc">-</span> <span class="dv">1</span></span>
-<span id="cb22-95"><a href="#cb22-95" aria-hidden="true" tabindex="-1"></a>  x0 <span class="ot">&lt;-</span> x_start <span class="sc">+</span> rx <span class="sc">-</span> <span class="dv">1</span></span>
-<span id="cb22-96"><a href="#cb22-96" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb22-97"><a href="#cb22-97" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Place first point</span></span>
-<span id="cb22-98"><a href="#cb22-98" aria-hidden="true" tabindex="-1"></a>  energy_current <span class="ot">&lt;-</span> energy_current <span class="sc">+</span> <span class="fu">energy_splat</span>(y0, x0)</span>
-<span id="cb22-99"><a href="#cb22-99" aria-hidden="true" tabindex="-1"></a>  energy_current[y0, x0] <span class="ot">&lt;-</span> <span class="cn">Inf</span>  <span class="co"># Prevent reselection</span></span>
-<span id="cb22-100"><a href="#cb22-100" aria-hidden="true" tabindex="-1"></a>  samples[[<span class="dv">1</span>]] <span class="ot">&lt;-</span> <span class="fu">c</span>(y0, x0, I[y0, x0])</span>
-<span id="cb22-101"><a href="#cb22-101" aria-hidden="true" tabindex="-1"></a>  final_stipple[y0, x0] <span class="ot">&lt;-</span> <span class="fl">0.0</span>  <span class="co"># Black dot</span></span>
-<span id="cb22-102"><a href="#cb22-102" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb22-103"><a href="#cb22-103" aria-hidden="true" tabindex="-1"></a>  <span class="co"># --- iterate ---</span></span>
-<span id="cb22-104"><a href="#cb22-104" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span>num_points) {</span>
-<span id="cb22-105"><a href="#cb22-105" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Add exploration noise that decreases over time</span></span>
-<span id="cb22-106"><a href="#cb22-106" aria-hidden="true" tabindex="-1"></a>    exploration <span class="ot">&lt;-</span> <span class="fl">1.0</span> <span class="sc">-</span> ((i <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">/</span> num_points) <span class="sc">*</span> <span class="fl">0.5</span>  <span class="co"># Decrease from 1.0 to 0.5</span></span>
-<span id="cb22-107"><a href="#cb22-107" aria-hidden="true" tabindex="-1"></a>    noise <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fu">rnorm</span>(h <span class="sc">*</span> w, <span class="dv">0</span>, noise_scale_factor <span class="sc">*</span> content_bias <span class="sc">*</span> exploration), </span>
-<span id="cb22-108"><a href="#cb22-108" aria-hidden="true" tabindex="-1"></a>                    <span class="at">nrow =</span> h, <span class="at">ncol =</span> w)</span>
-<span id="cb22-109"><a href="#cb22-109" aria-hidden="true" tabindex="-1"></a>    energy_with_noise <span class="ot">&lt;-</span> energy_current <span class="sc">+</span> noise</span>
-<span id="cb22-110"><a href="#cb22-110" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb22-111"><a href="#cb22-111" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Find position with minimum energy (with noise for exploration)</span></span>
-<span id="cb22-112"><a href="#cb22-112" aria-hidden="true" tabindex="-1"></a>    pos_flat <span class="ot">&lt;-</span> <span class="fu">which.min</span>(energy_with_noise)</span>
-<span id="cb22-113"><a href="#cb22-113" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb22-114"><a href="#cb22-114" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Column-major unflatten:</span></span>
-<span id="cb22-115"><a href="#cb22-115" aria-hidden="true" tabindex="-1"></a>    <span class="co"># R matrices are column-major, so y = (idx-1) %% h + 1, x = (idx-1) %/% h + 1</span></span>
-<span id="cb22-116"><a href="#cb22-116" aria-hidden="true" tabindex="-1"></a>    y <span class="ot">&lt;-</span> ((pos_flat <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">%%</span> h) <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb22-117"><a href="#cb22-117" aria-hidden="true" tabindex="-1"></a>    x <span class="ot">&lt;-</span> ((pos_flat <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">%/%</span> h) <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb22-118"><a href="#cb22-118" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb22-119"><a href="#cb22-119" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Add Gaussian splat to prevent nearby points from being selected</span></span>
-<span id="cb22-120"><a href="#cb22-120" aria-hidden="true" tabindex="-1"></a>    energy_current <span class="ot">&lt;-</span> energy_current <span class="sc">+</span> <span class="fu">energy_splat</span>(y, x)</span>
-<span id="cb22-121"><a href="#cb22-121" aria-hidden="true" tabindex="-1"></a>    energy_current[y, x] <span class="ot">&lt;-</span> <span class="cn">Inf</span>  <span class="co"># Prevent reselection</span></span>
-<span id="cb22-122"><a href="#cb22-122" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb22-123"><a href="#cb22-123" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Record the sample</span></span>
-<span id="cb22-124"><a href="#cb22-124" aria-hidden="true" tabindex="-1"></a>    samples[[i]] <span class="ot">&lt;-</span> <span class="fu">c</span>(y, x, I[y, x])</span>
-<span id="cb22-125"><a href="#cb22-125" aria-hidden="true" tabindex="-1"></a>    final_stipple[y, x] <span class="ot">&lt;-</span> <span class="fl">0.0</span>  <span class="co"># Black dot</span></span>
-<span id="cb22-126"><a href="#cb22-126" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb22-127"><a href="#cb22-127" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb22-128"><a href="#cb22-128" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Convert samples list to matrix</span></span>
-<span id="cb22-129"><a href="#cb22-129" aria-hidden="true" tabindex="-1"></a>  samples_matrix <span class="ot">&lt;-</span> <span class="fu">do.call</span>(rbind, samples[<span class="dv">1</span><span class="sc">:</span>num_points])</span>
-<span id="cb22-130"><a href="#cb22-130" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb22-131"><a href="#cb22-131" aria-hidden="true" tabindex="-1"></a>  <span class="fu">return</span>(<span class="fu">list</span>(<span class="at">stipple =</span> final_stipple, <span class="at">samples =</span> samples_matrix))</span>
-<span id="cb22-132"><a href="#cb22-132" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-</div>
+
 </div>
 </div>
 </div>
@@ -688,79 +207,10 @@ Attaching package: 'imager'</code></pre>
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-4-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-1" role="tab" aria-controls="tabset-4-1" aria-selected="true" href="">Python</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-4-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-4-2" role="tab" aria-controls="tabset-4-2" aria-selected="false" href="">R</a></li></ul>
 <div class="tab-content">
 <div id="tabset-4-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-4-1-tab">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb23"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb23-1"><a href="#cb23-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Resize image if it's too large for faster processing</span></span>
-<span id="cb23-2"><a href="#cb23-2" aria-hidden="true" tabindex="-1"></a>max_size <span class="op">=</span> <span class="dv">512</span></span>
-<span id="cb23-3"><a href="#cb23-3" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> img_array.shape[<span class="dv">0</span>] <span class="op">&gt;</span> max_size <span class="kw">or</span> img_array.shape[<span class="dv">1</span>] <span class="op">&gt;</span> max_size:</span>
-<span id="cb23-4"><a href="#cb23-4" aria-hidden="true" tabindex="-1"></a>    scale <span class="op">=</span> max_size <span class="op">/</span> <span class="bu">max</span>(img_array.shape[<span class="dv">0</span>], img_array.shape[<span class="dv">1</span>])</span>
-<span id="cb23-5"><a href="#cb23-5" aria-hidden="true" tabindex="-1"></a>    new_size <span class="op">=</span> (<span class="bu">int</span>(img_array.shape[<span class="dv">1</span>] <span class="op">*</span> scale), <span class="bu">int</span>(img_array.shape[<span class="dv">0</span>] <span class="op">*</span> scale))</span>
-<span id="cb23-6"><a href="#cb23-6" aria-hidden="true" tabindex="-1"></a>    img_resized_pil <span class="op">=</span> original_img.resize(new_size, Image.Resampling.LANCZOS)</span>
-<span id="cb23-7"><a href="#cb23-7" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> img_resized_pil.mode <span class="op">!=</span> <span class="st">'L'</span>:</span>
-<span id="cb23-8"><a href="#cb23-8" aria-hidden="true" tabindex="-1"></a>        img_resized_pil <span class="op">=</span> img_resized_pil.convert(<span class="st">'L'</span>)</span>
-<span id="cb23-9"><a href="#cb23-9" aria-hidden="true" tabindex="-1"></a>    img_resized <span class="op">=</span> np.array(img_resized_pil, dtype<span class="op">=</span>np.float32) <span class="op">/</span> <span class="fl">255.0</span></span>
-<span id="cb23-10"><a href="#cb23-10" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Resized image from </span><span class="sc">{</span>img_array<span class="sc">.</span>shape<span class="sc">}</span><span class="ss"> to </span><span class="sc">{</span>img_resized<span class="sc">.</span>shape<span class="sc">}</span><span class="ss"> for processing"</span>)</span>
-<span id="cb23-11"><a href="#cb23-11" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb23-12"><a href="#cb23-12" aria-hidden="true" tabindex="-1"></a>    img_resized <span class="op">=</span> img_array.copy()</span>
-<span id="cb23-13"><a href="#cb23-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-14"><a href="#cb23-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Ensure img_resized is 2D grayscale</span></span>
-<span id="cb23-15"><a href="#cb23-15" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">len</span>(img_resized.shape) <span class="op">&gt;</span> <span class="dv">2</span>:</span>
-<span id="cb23-16"><a href="#cb23-16" aria-hidden="true" tabindex="-1"></a>    img_resized <span class="op">=</span> img_resized[:, :, <span class="dv">0</span>]</span>
-<span id="cb23-17"><a href="#cb23-17" aria-hidden="true" tabindex="-1"></a><span class="cf">elif</span> <span class="bu">len</span>(img_resized.shape) <span class="op">==</span> <span class="dv">2</span>:</span>
-<span id="cb23-18"><a href="#cb23-18" aria-hidden="true" tabindex="-1"></a>    <span class="cf">pass</span></span>
-<span id="cb23-19"><a href="#cb23-19" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb23-20"><a href="#cb23-20" aria-hidden="true" tabindex="-1"></a>    <span class="cf">raise</span> <span class="pp">ValueError</span>(<span class="ss">f"Unexpected image shape: </span><span class="sc">{</span>img_resized<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>)</span>
-<span id="cb23-21"><a href="#cb23-21" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb23-22"><a href="#cb23-22" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Final image shape: </span><span class="sc">{</span>img_resized<span class="sc">.</span>shape<span class="sc">}</span><span class="ss"> (should be 2D for grayscale)"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Final image shape: (375, 250) (should be 2D for grayscale)</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb25"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb25-1"><a href="#cb25-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute importance map using default parameters</span></span>
-<span id="cb25-2"><a href="#cb25-2" aria-hidden="true" tabindex="-1"></a>importance_map <span class="op">=</span> compute_importance(</span>
-<span id="cb25-3"><a href="#cb25-3" aria-hidden="true" tabindex="-1"></a>    img_resized,</span>
-<span id="cb25-4"><a href="#cb25-4" aria-hidden="true" tabindex="-1"></a>    extreme_downweight<span class="op">=</span><span class="fl">0.5</span>,</span>
-<span id="cb25-5"><a href="#cb25-5" aria-hidden="true" tabindex="-1"></a>    extreme_threshold_low<span class="op">=</span><span class="fl">0.2</span>,</span>
-<span id="cb25-6"><a href="#cb25-6" aria-hidden="true" tabindex="-1"></a>    extreme_threshold_high<span class="op">=</span><span class="fl">0.8</span>,</span>
-<span id="cb25-7"><a href="#cb25-7" aria-hidden="true" tabindex="-1"></a>    extreme_sigma<span class="op">=</span><span class="fl">0.1</span></span>
-<span id="cb25-8"><a href="#cb25-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb25-9"><a href="#cb25-9" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Importance map computed"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Importance map computed</code></pre>
-</div>
-</div>
+
 </div>
 <div id="tabset-4-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-4-2-tab">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb27"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb27-1"><a href="#cb27-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Resize image if needed</span></span>
-<span id="cb27-2"><a href="#cb27-2" aria-hidden="true" tabindex="-1"></a>max_size <span class="ot">&lt;-</span> <span class="dv">512</span></span>
-<span id="cb27-3"><a href="#cb27-3" aria-hidden="true" tabindex="-1"></a>img_dims <span class="ot">&lt;-</span> <span class="fu">dim</span>(original_img)</span>
-<span id="cb27-4"><a href="#cb27-4" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(img_dims[<span class="dv">1</span>] <span class="sc">&gt;</span> max_size <span class="sc">||</span> img_dims[<span class="dv">2</span>] <span class="sc">&gt;</span> max_size) {</span>
-<span id="cb27-5"><a href="#cb27-5" aria-hidden="true" tabindex="-1"></a>  scale <span class="ot">&lt;-</span> max_size <span class="sc">/</span> <span class="fu">max</span>(img_dims[<span class="dv">1</span>], img_dims[<span class="dv">2</span>])</span>
-<span id="cb27-6"><a href="#cb27-6" aria-hidden="true" tabindex="-1"></a>  new_size <span class="ot">&lt;-</span> <span class="fu">c</span>(<span class="fu">round</span>(img_dims[<span class="dv">1</span>] <span class="sc">*</span> scale), <span class="fu">round</span>(img_dims[<span class="dv">2</span>] <span class="sc">*</span> scale))</span>
-<span id="cb27-7"><a href="#cb27-7" aria-hidden="true" tabindex="-1"></a>  img_resized <span class="ot">&lt;-</span> <span class="fu">resize</span>(original_img, new_size[<span class="dv">1</span>], new_size[<span class="dv">2</span>])</span>
-<span id="cb27-8"><a href="#cb27-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"Resized image to"</span>, new_size[<span class="dv">1</span>], <span class="st">"x"</span>, new_size[<span class="dv">2</span>], <span class="st">"for processing</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb27-9"><a href="#cb27-9" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb27-10"><a href="#cb27-10" aria-hidden="true" tabindex="-1"></a>  img_resized <span class="ot">&lt;-</span> original_img</span>
-<span id="cb27-11"><a href="#cb27-11" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb27-12"><a href="#cb27-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-13"><a href="#cb27-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Convert to matrix and normalize</span></span>
-<span id="cb27-14"><a href="#cb27-14" aria-hidden="true" tabindex="-1"></a><span class="co"># imager uses (x,y,cc,z) = (width, height, channels, depth)</span></span>
-<span id="cb27-15"><a href="#cb27-15" aria-hidden="true" tabindex="-1"></a><span class="co"># but R matrices use (row, col) = (y, x)</span></span>
-<span id="cb27-16"><a href="#cb27-16" aria-hidden="true" tabindex="-1"></a><span class="co"># Extract grayscale plane and transpose to get [h, w] orientation</span></span>
-<span id="cb27-17"><a href="#cb27-17" aria-hidden="true" tabindex="-1"></a>arr <span class="ot">&lt;-</span> <span class="fu">as.array</span>(img_resized)          <span class="co"># dims: [x, y, cc, z] = [w, h, 1, 1]</span></span>
-<span id="cb27-18"><a href="#cb27-18" aria-hidden="true" tabindex="-1"></a>img_matrix <span class="ot">&lt;-</span> <span class="fu">t</span>(arr[,,<span class="dv">1</span>,<span class="dv">1</span>])           <span class="co"># now dims: [h, w]  (row=y, col=x)</span></span>
-<span id="cb27-19"><a href="#cb27-19" aria-hidden="true" tabindex="-1"></a>img_matrix <span class="ot">&lt;-</span> img_matrix <span class="sc">/</span> <span class="fu">max</span>(img_matrix)</span>
-<span id="cb27-20"><a href="#cb27-20" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb27-21"><a href="#cb27-21" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Final image shape:"</span>, <span class="fu">nrow</span>(img_matrix), <span class="st">"x"</span>, <span class="fu">ncol</span>(img_matrix), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Final image shape: 375 x 250 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb29"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb29-1"><a href="#cb29-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute importance map</span></span>
-<span id="cb29-2"><a href="#cb29-2" aria-hidden="true" tabindex="-1"></a>importance_map <span class="ot">&lt;-</span> <span class="fu">compute_importance</span>(img_matrix)</span>
-<span id="cb29-3"><a href="#cb29-3" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Importance map computed</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Importance map computed</code></pre>
-</div>
-</div>
+
 </div>
 </div>
 </div>
@@ -772,59 +222,10 @@ Attaching package: 'imager'</code></pre>
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-5-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-1" role="tab" aria-controls="tabset-5-1" aria-selected="true" href="">Python</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-5-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-5-2" role="tab" aria-controls="tabset-5-2" aria-selected="false" href="">R</a></li></ul>
 <div class="tab-content">
 <div id="tabset-5-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-5-1-tab">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb31"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb31-1"><a href="#cb31-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate stippling pattern</span></span>
-<span id="cb31-2"><a href="#cb31-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"Generating blue noise stippling pattern..."</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Generating blue noise stippling pattern...</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb33"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb33-1"><a href="#cb33-1" aria-hidden="true" tabindex="-1"></a>stipple_pattern, samples <span class="op">=</span> void_and_cluster(</span>
-<span id="cb33-2"><a href="#cb33-2" aria-hidden="true" tabindex="-1"></a>    img_resized,</span>
-<span id="cb33-3"><a href="#cb33-3" aria-hidden="true" tabindex="-1"></a>    percentage<span class="op">=</span><span class="fl">0.08</span>,</span>
-<span id="cb33-4"><a href="#cb33-4" aria-hidden="true" tabindex="-1"></a>    sigma<span class="op">=</span><span class="fl">0.9</span>,</span>
-<span id="cb33-5"><a href="#cb33-5" aria-hidden="true" tabindex="-1"></a>    content_bias<span class="op">=</span><span class="fl">0.9</span>,</span>
-<span id="cb33-6"><a href="#cb33-6" aria-hidden="true" tabindex="-1"></a>    importance_img<span class="op">=</span>importance_map,</span>
-<span id="cb33-7"><a href="#cb33-7" aria-hidden="true" tabindex="-1"></a>    noise_scale_factor<span class="op">=</span><span class="fl">0.1</span></span>
-<span id="cb33-8"><a href="#cb33-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb33-9"><a href="#cb33-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb33-10"><a href="#cb33-10" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Generated </span><span class="sc">{</span><span class="bu">len</span>(samples)<span class="sc">}</span><span class="ss"> stipple points"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Generated 7500 stipple points</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb35"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb35-1"><a href="#cb35-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Stipple pattern shape: </span><span class="sc">{</span>stipple_pattern<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Stipple pattern shape: (375, 250)</code></pre>
-</div>
-</div>
+
 </div>
 <div id="tabset-5-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-5-2-tab">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb37"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb37-1"><a href="#cb37-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Generate stippling pattern</span></span>
-<span id="cb37-2"><a href="#cb37-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Generating blue noise stippling pattern...</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Generating blue noise stippling pattern...</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb39"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb39-1"><a href="#cb39-1" aria-hidden="true" tabindex="-1"></a>stipple_result <span class="ot">&lt;-</span> <span class="fu">void_and_cluster</span>(</span>
-<span id="cb39-2"><a href="#cb39-2" aria-hidden="true" tabindex="-1"></a>  img_matrix,</span>
-<span id="cb39-3"><a href="#cb39-3" aria-hidden="true" tabindex="-1"></a>  <span class="at">percentage =</span> <span class="fl">0.08</span>,</span>
-<span id="cb39-4"><a href="#cb39-4" aria-hidden="true" tabindex="-1"></a>  <span class="at">sigma =</span> <span class="fl">0.9</span>,</span>
-<span id="cb39-5"><a href="#cb39-5" aria-hidden="true" tabindex="-1"></a>  <span class="at">content_bias =</span> <span class="fl">0.9</span>,</span>
-<span id="cb39-6"><a href="#cb39-6" aria-hidden="true" tabindex="-1"></a>  <span class="at">importance_img =</span> importance_map,</span>
-<span id="cb39-7"><a href="#cb39-7" aria-hidden="true" tabindex="-1"></a>  <span class="at">noise_scale_factor =</span> <span class="fl">0.1</span></span>
-<span id="cb39-8"><a href="#cb39-8" aria-hidden="true" tabindex="-1"></a>)</span>
-<span id="cb39-9"><a href="#cb39-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-10"><a href="#cb39-10" aria-hidden="true" tabindex="-1"></a>stipple_pattern <span class="ot">&lt;-</span> stipple_result<span class="sc">$</span>stipple</span>
-<span id="cb39-11"><a href="#cb39-11" aria-hidden="true" tabindex="-1"></a>samples <span class="ot">&lt;-</span> stipple_result<span class="sc">$</span>samples</span>
-<span id="cb39-12"><a href="#cb39-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb39-13"><a href="#cb39-13" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Generated"</span>, <span class="fu">nrow</span>(samples), <span class="st">"stipple points</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Generated 7500 stipple points</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb41"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb41-1"><a href="#cb41-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Stipple pattern shape:"</span>, <span class="fu">nrow</span>(stipple_pattern), <span class="st">"x"</span>, <span class="fu">ncol</span>(stipple_pattern), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Stipple pattern shape: 375 x 250 </code></pre>
-</div>
-</div>
+
 </div>
 </div>
 </div>
@@ -836,68 +237,10 @@ Attaching package: 'imager'</code></pre>
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-6-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-1" role="tab" aria-controls="tabset-6-1" aria-selected="true" href="">Python</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-6-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-6-2" role="tab" aria-controls="tabset-6-2" aria-selected="false" href="">R</a></li></ul>
 <div class="tab-content">
 <div id="tabset-6-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-6-1-tab">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb43"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb43-1"><a href="#cb43-1" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">3</span>, figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">4</span>))</span>
-<span id="cb43-2"><a href="#cb43-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb43-3"><a href="#cb43-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Display original image</span></span>
-<span id="cb43-4"><a href="#cb43-4" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].imshow(img_resized, cmap<span class="op">=</span><span class="st">'gray'</span>, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb43-5"><a href="#cb43-5" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].axis(<span class="st">'off'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>(np.float64(-0.5), np.float64(249.5), np.float64(374.5), np.float64(-0.5))</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb45"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb45-1"><a href="#cb45-1" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].set_title(<span class="st">'Original Image'</span>, fontsize<span class="op">=</span><span class="dv">14</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>, pad<span class="op">=</span><span class="dv">10</span>)</span>
-<span id="cb45-2"><a href="#cb45-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb45-3"><a href="#cb45-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Display importance map</span></span>
-<span id="cb45-4"><a href="#cb45-4" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].imshow(importance_map, cmap<span class="op">=</span><span class="st">'gray'</span>, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb45-5"><a href="#cb45-5" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].axis(<span class="st">'off'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>(np.float64(-0.5), np.float64(249.5), np.float64(374.5), np.float64(-0.5))</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb47"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb47-1"><a href="#cb47-1" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].set_title(<span class="st">'Importance Map'</span>, fontsize<span class="op">=</span><span class="dv">14</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>, pad<span class="op">=</span><span class="dv">10</span>)</span>
-<span id="cb47-2"><a href="#cb47-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb47-3"><a href="#cb47-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Display stippled image</span></span>
-<span id="cb47-4"><a href="#cb47-4" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">2</span>].imshow(stipple_pattern, cmap<span class="op">=</span><span class="st">'gray'</span>, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb47-5"><a href="#cb47-5" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">2</span>].axis(<span class="st">'off'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>(np.float64(-0.5), np.float64(249.5), np.float64(374.5), np.float64(-0.5))</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb49"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb49-1"><a href="#cb49-1" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">2</span>].set_title(<span class="st">'Blue Noise Stippling'</span>, fontsize<span class="op">=</span><span class="dv">14</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>, pad<span class="op">=</span><span class="dv">10</span>)</span>
-<span id="cb49-2"><a href="#cb49-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb49-3"><a href="#cb49-3" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb49-4"><a href="#cb49-4" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="index_files/figure-html/display-results-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption>Comparison of original image, importance map, and blue noise stippling</figcaption>
-</figure>
-</div>
-</div>
-</div>
+
 </div>
 <div id="tabset-6-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-6-2-tab">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb50"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb50-1"><a href="#cb50-1" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">3</span>), <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>))</span>
-<span id="cb50-2"><a href="#cb50-2" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-3"><a href="#cb50-3" aria-hidden="true" tabindex="-1"></a><span class="co"># Original</span></span>
-<span id="cb50-4"><a href="#cb50-4" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(img_resized, <span class="at">axes =</span> <span class="cn">FALSE</span>, <span class="at">main =</span> <span class="st">"Original Image"</span>)</span>
-<span id="cb50-5"><a href="#cb50-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-6"><a href="#cb50-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Importance map (matrix [h, w]) -&gt; transpose for imager ([x, y])</span></span>
-<span id="cb50-7"><a href="#cb50-7" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">as.cimg</span>(<span class="fu">t</span>(importance_map), <span class="at">x =</span> <span class="fu">ncol</span>(importance_map), <span class="at">y =</span> <span class="fu">nrow</span>(importance_map), <span class="at">cc =</span> <span class="dv">1</span>), </span>
-<span id="cb50-8"><a href="#cb50-8" aria-hidden="true" tabindex="-1"></a>     <span class="at">axes =</span> <span class="cn">FALSE</span>, <span class="at">main =</span> <span class="st">"Importance Map"</span>)</span>
-<span id="cb50-9"><a href="#cb50-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb50-10"><a href="#cb50-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Stipple pattern (matrix [h, w]) -&gt; transpose for imager ([x, y])</span></span>
-<span id="cb50-11"><a href="#cb50-11" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(<span class="fu">as.cimg</span>(<span class="fu">t</span>(stipple_pattern), <span class="at">x =</span> <span class="fu">ncol</span>(stipple_pattern), <span class="at">y =</span> <span class="fu">nrow</span>(stipple_pattern), <span class="at">cc =</span> <span class="dv">1</span>), </span>
-<span id="cb50-12"><a href="#cb50-12" aria-hidden="true" tabindex="-1"></a>     <span class="at">axes =</span> <span class="cn">FALSE</span>, <span class="at">main =</span> <span class="st">"Blue Noise Stippling"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="index_files/figure-html/display-results-r-3.png" class="img-fluid figure-img" width="672"></p>
-<figcaption>Comparison of original image, importance map, and blue noise stippling</figcaption>
-</figure>
-</div>
-</div>
-</div>
+
 </div>
 </div>
 </div>
@@ -909,107 +252,10 @@ Attaching package: 'imager'</code></pre>
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-7-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-1" role="tab" aria-controls="tabset-7-1" aria-selected="true" href="">Python</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-7-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-7-2" role="tab" aria-controls="tabset-7-2" aria-selected="false" href="">R</a></li></ul>
 <div class="tab-content">
 <div id="tabset-7-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-7-1-tab">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb51"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb51-1"><a href="#cb51-1" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> numpy <span class="im">as</span> np</span>
-<span id="cb51-2"><a href="#cb51-2" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> PIL <span class="im">import</span> Image</span>
-<span id="cb51-3"><a href="#cb51-3" aria-hidden="true" tabindex="-1"></a><span class="im">import</span> matplotlib.pyplot <span class="im">as</span> plt</span>
-<span id="cb51-4"><a href="#cb51-4" aria-hidden="true" tabindex="-1"></a><span class="im">from</span> matplotlib.animation <span class="im">import</span> PillowWriter</span>
-<span id="cb51-5"><a href="#cb51-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb51-6"><a href="#cb51-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Use the existing samples array from the already-computed stippling</span></span>
-<span id="cb51-7"><a href="#cb51-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Using existing stippling with </span><span class="sc">{</span><span class="bu">len</span>(samples)<span class="sc">}</span><span class="ss"> points"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Using existing stippling with 7500 points</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb53"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb53-1"><a href="#cb53-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Image shape: </span><span class="sc">{</span>img_resized<span class="sc">.</span>shape<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Image shape: (375, 250)</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb55"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb55-1"><a href="#cb55-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create progressive frames by adding points sequentially</span></span>
-<span id="cb55-2"><a href="#cb55-2" aria-hidden="true" tabindex="-1"></a>frame_increment <span class="op">=</span> <span class="dv">100</span></span>
-<span id="cb55-3"><a href="#cb55-3" aria-hidden="true" tabindex="-1"></a>frames <span class="op">=</span> []</span>
-<span id="cb55-4"><a href="#cb55-4" aria-hidden="true" tabindex="-1"></a>point_counts <span class="op">=</span> []</span>
-<span id="cb55-5"><a href="#cb55-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb55-6"><a href="#cb55-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Start with white background</span></span>
-<span id="cb55-7"><a href="#cb55-7" aria-hidden="true" tabindex="-1"></a>h, w <span class="op">=</span> img_resized.shape</span>
-<span id="cb55-8"><a href="#cb55-8" aria-hidden="true" tabindex="-1"></a>progressive_stipple <span class="op">=</span> np.ones_like(img_resized)</span>
-<span id="cb55-9"><a href="#cb55-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb55-10"><a href="#cb55-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Add first point and save initial frame</span></span>
-<span id="cb55-11"><a href="#cb55-11" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> <span class="bu">len</span>(samples) <span class="op">&gt;</span> <span class="dv">0</span>:</span>
-<span id="cb55-12"><a href="#cb55-12" aria-hidden="true" tabindex="-1"></a>    y0, x0, intensity0 <span class="op">=</span> <span class="bu">int</span>(samples[<span class="dv">0</span>, <span class="dv">0</span>]), <span class="bu">int</span>(samples[<span class="dv">0</span>, <span class="dv">1</span>]), samples[<span class="dv">0</span>, <span class="dv">2</span>]</span>
-<span id="cb55-13"><a href="#cb55-13" aria-hidden="true" tabindex="-1"></a>    progressive_stipple[y0, x0] <span class="op">=</span> <span class="fl">0.0</span></span>
-<span id="cb55-14"><a href="#cb55-14" aria-hidden="true" tabindex="-1"></a>    frames.append(progressive_stipple.copy())</span>
-<span id="cb55-15"><a href="#cb55-15" aria-hidden="true" tabindex="-1"></a>    point_counts.append(<span class="dv">1</span>)</span>
-<span id="cb55-16"><a href="#cb55-16" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb55-17"><a href="#cb55-17" aria-hidden="true" tabindex="-1"></a><span class="co"># Add remaining points sequentially and save frames at increments</span></span>
-<span id="cb55-18"><a href="#cb55-18" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(<span class="dv">1</span>, <span class="bu">len</span>(samples)):</span>
-<span id="cb55-19"><a href="#cb55-19" aria-hidden="true" tabindex="-1"></a>    y, x <span class="op">=</span> <span class="bu">int</span>(samples[i, <span class="dv">0</span>]), <span class="bu">int</span>(samples[i, <span class="dv">1</span>])</span>
-<span id="cb55-20"><a href="#cb55-20" aria-hidden="true" tabindex="-1"></a>    progressive_stipple[y, x] <span class="op">=</span> <span class="fl">0.0</span>  <span class="co"># Add black dot</span></span>
-<span id="cb55-21"><a href="#cb55-21" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb55-22"><a href="#cb55-22" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Save frame at increments (100, 200, 300, ...) and at the end</span></span>
-<span id="cb55-23"><a href="#cb55-23" aria-hidden="true" tabindex="-1"></a>    <span class="cf">if</span> (i <span class="op">+</span> <span class="dv">1</span>) <span class="op">%</span> frame_increment <span class="op">==</span> <span class="dv">0</span> <span class="kw">or</span> i <span class="op">==</span> <span class="bu">len</span>(samples) <span class="op">-</span> <span class="dv">1</span>:</span>
-<span id="cb55-24"><a href="#cb55-24" aria-hidden="true" tabindex="-1"></a>        frames.append(progressive_stipple.copy())</span>
-<span id="cb55-25"><a href="#cb55-25" aria-hidden="true" tabindex="-1"></a>        point_counts.append(i <span class="op">+</span> <span class="dv">1</span>)</span>
-<span id="cb55-26"><a href="#cb55-26" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb55-27"><a href="#cb55-27" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Generated </span><span class="sc">{</span><span class="bu">len</span>(frames)<span class="sc">}</span><span class="ss"> frames"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Generated 76 frames</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb57"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb57-1"><a href="#cb57-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Point counts: </span><span class="sc">{</span>point_counts<span class="sc">}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Point counts: [1, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300, 2400, 2500, 2600, 2700, 2800, 2900, 3000, 3100, 3200, 3300, 3400, 3500, 3600, 3700, 3800, 3900, 4000, 4100, 4200, 4300, 4400, 4500, 4600, 4700, 4800, 4900, 5000, 5100, 5200, 5300, 5400, 5500, 5600, 5700, 5800, 5900, 6000, 6100, 6200, 6300, 6400, 6500, 6600, 6700, 6800, 6900, 7000, 7100, 7200, 7300, 7400, 7500]</code></pre>
-</div>
-</div>
+
 </div>
 <div id="tabset-7-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-7-2-tab">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb59"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb59-1"><a href="#cb59-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Use the existing samples from the already-computed stippling</span></span>
-<span id="cb59-2"><a href="#cb59-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Using existing stippling with"</span>, <span class="fu">nrow</span>(samples), <span class="st">"points</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Using existing stippling with 7500 points</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb61"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb61-1"><a href="#cb61-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Image shape:"</span>, <span class="fu">nrow</span>(img_matrix), <span class="st">"x"</span>, <span class="fu">ncol</span>(img_matrix), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Image shape: 375 x 250 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb63"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb63-1"><a href="#cb63-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Create progressive frames by adding points sequentially</span></span>
-<span id="cb63-2"><a href="#cb63-2" aria-hidden="true" tabindex="-1"></a>frame_increment <span class="ot">&lt;-</span> <span class="dv">100</span></span>
-<span id="cb63-3"><a href="#cb63-3" aria-hidden="true" tabindex="-1"></a>frames <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
-<span id="cb63-4"><a href="#cb63-4" aria-hidden="true" tabindex="-1"></a>point_counts <span class="ot">&lt;-</span> <span class="fu">c</span>()</span>
-<span id="cb63-5"><a href="#cb63-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb63-6"><a href="#cb63-6" aria-hidden="true" tabindex="-1"></a><span class="co"># Start with white background</span></span>
-<span id="cb63-7"><a href="#cb63-7" aria-hidden="true" tabindex="-1"></a>progressive_stipple <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="fl">1.0</span>, <span class="at">nrow =</span> <span class="fu">nrow</span>(img_matrix), <span class="at">ncol =</span> <span class="fu">ncol</span>(img_matrix))</span>
-<span id="cb63-8"><a href="#cb63-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb63-9"><a href="#cb63-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Add first point and save initial frame</span></span>
-<span id="cb63-10"><a href="#cb63-10" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">nrow</span>(samples) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
-<span id="cb63-11"><a href="#cb63-11" aria-hidden="true" tabindex="-1"></a>  y0 <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(samples[<span class="dv">1</span>, <span class="dv">1</span>])</span>
-<span id="cb63-12"><a href="#cb63-12" aria-hidden="true" tabindex="-1"></a>  x0 <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(samples[<span class="dv">1</span>, <span class="dv">2</span>])</span>
-<span id="cb63-13"><a href="#cb63-13" aria-hidden="true" tabindex="-1"></a>  progressive_stipple[y0, x0] <span class="ot">&lt;-</span> <span class="fl">0.0</span></span>
-<span id="cb63-14"><a href="#cb63-14" aria-hidden="true" tabindex="-1"></a>  frames[[<span class="dv">1</span>]] <span class="ot">&lt;-</span> progressive_stipple</span>
-<span id="cb63-15"><a href="#cb63-15" aria-hidden="true" tabindex="-1"></a>  point_counts <span class="ot">&lt;-</span> <span class="fu">c</span>(point_counts, <span class="dv">1</span>)</span>
-<span id="cb63-16"><a href="#cb63-16" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb63-17"><a href="#cb63-17" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb63-18"><a href="#cb63-18" aria-hidden="true" tabindex="-1"></a><span class="co"># Add remaining points sequentially and save frames at increments</span></span>
-<span id="cb63-19"><a href="#cb63-19" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">2</span><span class="sc">:</span><span class="fu">nrow</span>(samples)) {</span>
-<span id="cb63-20"><a href="#cb63-20" aria-hidden="true" tabindex="-1"></a>  y <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(samples[i, <span class="dv">1</span>])</span>
-<span id="cb63-21"><a href="#cb63-21" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(samples[i, <span class="dv">2</span>])</span>
-<span id="cb63-22"><a href="#cb63-22" aria-hidden="true" tabindex="-1"></a>  progressive_stipple[y, x] <span class="ot">&lt;-</span> <span class="fl">0.0</span>  <span class="co"># Add black dot</span></span>
-<span id="cb63-23"><a href="#cb63-23" aria-hidden="true" tabindex="-1"></a>  </span>
-<span id="cb63-24"><a href="#cb63-24" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Save frame at increments (100, 200, 300, ...) and at the end</span></span>
-<span id="cb63-25"><a href="#cb63-25" aria-hidden="true" tabindex="-1"></a>  <span class="cf">if</span>(i <span class="sc">%%</span> frame_increment <span class="sc">==</span> <span class="dv">0</span> <span class="sc">||</span> i <span class="sc">==</span> <span class="fu">nrow</span>(samples)) {</span>
-<span id="cb63-26"><a href="#cb63-26" aria-hidden="true" tabindex="-1"></a>    frames[[<span class="fu">length</span>(frames) <span class="sc">+</span> <span class="dv">1</span>]] <span class="ot">&lt;-</span> progressive_stipple</span>
-<span id="cb63-27"><a href="#cb63-27" aria-hidden="true" tabindex="-1"></a>    point_counts <span class="ot">&lt;-</span> <span class="fu">c</span>(point_counts, i)</span>
-<span id="cb63-28"><a href="#cb63-28" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb63-29"><a href="#cb63-29" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb63-30"><a href="#cb63-30" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb63-31"><a href="#cb63-31" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Generated"</span>, <span class="fu">length</span>(frames), <span class="st">"frames</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Generated 76 frames</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb65"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb65-1"><a href="#cb65-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Point counts:"</span>, <span class="fu">paste</span>(point_counts, <span class="at">collapse =</span> <span class="st">", "</span>), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Point counts: 1, 100, 200, 300, 400, 500, 600, 700, 800, 900, 1000, 1100, 1200, 1300, 1400, 1500, 1600, 1700, 1800, 1900, 2000, 2100, 2200, 2300, 2400, 2500, 2600, 2700, 2800, 2900, 3000, 3100, 3200, 3300, 3400, 3500, 3600, 3700, 3800, 3900, 4000, 4100, 4200, 4300, 4400, 4500, 4600, 4700, 4800, 4900, 5000, 5100, 5200, 5300, 5400, 5500, 5600, 5700, 5800, 5900, 6000, 6100, 6200, 6300, 6400, 6500, 6600, 6700, 6800, 6900, 7000, 7100, 7200, 7300, 7400, 7500 </code></pre>
-</div>
-</div>
+
 </div>
 </div>
 </div>
@@ -1039,387 +285,10 @@ Attaching package: 'imager'</code></pre>
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-9-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-1" role="tab" aria-controls="tabset-9-1" aria-selected="true" href="">Python</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-9-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-9-2" role="tab" aria-controls="tabset-9-2" aria-selected="false" href="">R</a></li></ul>
 <div class="tab-content">
 <div id="tabset-9-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-9-1-tab">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb67"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb67-1"><a href="#cb67-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Divide image into a grid of sections</span></span>
-<span id="cb67-2"><a href="#cb67-2" aria-hidden="true" tabindex="-1"></a>grid_rows <span class="op">=</span> <span class="dv">16</span></span>
-<span id="cb67-3"><a href="#cb67-3" aria-hidden="true" tabindex="-1"></a>grid_cols <span class="op">=</span> <span class="dv">12</span></span>
-<span id="cb67-4"><a href="#cb67-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb67-5"><a href="#cb67-5" aria-hidden="true" tabindex="-1"></a>h, w <span class="op">=</span> img_resized.shape</span>
-<span id="cb67-6"><a href="#cb67-6" aria-hidden="true" tabindex="-1"></a>section_h <span class="op">=</span> h <span class="op">//</span> grid_rows</span>
-<span id="cb67-7"><a href="#cb67-7" aria-hidden="true" tabindex="-1"></a>section_w <span class="op">=</span> w <span class="op">//</span> grid_cols</span>
-<span id="cb67-8"><a href="#cb67-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb67-9"><a href="#cb67-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Create arrays to store average tones</span></span>
-<span id="cb67-10"><a href="#cb67-10" aria-hidden="true" tabindex="-1"></a>average_tones <span class="op">=</span> np.zeros((grid_rows, grid_cols))</span>
-<span id="cb67-11"><a href="#cb67-11" aria-hidden="true" tabindex="-1"></a>section_coords <span class="op">=</span> []</span>
-<span id="cb67-12"><a href="#cb67-12" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb67-13"><a href="#cb67-13" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute average tone for each section</span></span>
-<span id="cb67-14"><a href="#cb67-14" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(grid_rows):</span>
-<span id="cb67-15"><a href="#cb67-15" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(grid_cols):</span>
-<span id="cb67-16"><a href="#cb67-16" aria-hidden="true" tabindex="-1"></a>        y_start <span class="op">=</span> i <span class="op">*</span> section_h</span>
-<span id="cb67-17"><a href="#cb67-17" aria-hidden="true" tabindex="-1"></a>        y_end <span class="op">=</span> (i <span class="op">+</span> <span class="dv">1</span>) <span class="op">*</span> section_h <span class="cf">if</span> i <span class="op">&lt;</span> grid_rows <span class="op">-</span> <span class="dv">1</span> <span class="cf">else</span> h</span>
-<span id="cb67-18"><a href="#cb67-18" aria-hidden="true" tabindex="-1"></a>        x_start <span class="op">=</span> j <span class="op">*</span> section_w</span>
-<span id="cb67-19"><a href="#cb67-19" aria-hidden="true" tabindex="-1"></a>        x_end <span class="op">=</span> (j <span class="op">+</span> <span class="dv">1</span>) <span class="op">*</span> section_w <span class="cf">if</span> j <span class="op">&lt;</span> grid_cols <span class="op">-</span> <span class="dv">1</span> <span class="cf">else</span> w</span>
-<span id="cb67-20"><a href="#cb67-20" aria-hidden="true" tabindex="-1"></a>        </span>
-<span id="cb67-21"><a href="#cb67-21" aria-hidden="true" tabindex="-1"></a>        section <span class="op">=</span> img_resized[y_start:y_end, x_start:x_end]</span>
-<span id="cb67-22"><a href="#cb67-22" aria-hidden="true" tabindex="-1"></a>        avg_tone <span class="op">=</span> np.mean(section)</span>
-<span id="cb67-23"><a href="#cb67-23" aria-hidden="true" tabindex="-1"></a>        average_tones[i, j] <span class="op">=</span> avg_tone</span>
-<span id="cb67-24"><a href="#cb67-24" aria-hidden="true" tabindex="-1"></a>        section_coords.append((i, j, avg_tone))</span>
-<span id="cb67-25"><a href="#cb67-25" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb67-26"><a href="#cb67-26" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the grid with average tones</span></span>
-<span id="cb67-27"><a href="#cb67-27" aria-hidden="true" tabindex="-1"></a>fig, axes <span class="op">=</span> plt.subplots(<span class="dv">1</span>, <span class="dv">2</span>, figsize<span class="op">=</span>(<span class="dv">7</span>, <span class="dv">5</span>))</span>
-<span id="cb67-28"><a href="#cb67-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb67-29"><a href="#cb67-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Show original image with grid overlay</span></span>
-<span id="cb67-30"><a href="#cb67-30" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].imshow(img_resized, cmap<span class="op">=</span><span class="st">'gray'</span>, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">1</span>)</span>
-<span id="cb67-31"><a href="#cb67-31" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].set_title(<span class="st">'Original Image with Grid'</span>, fontsize<span class="op">=</span><span class="dv">14</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>, pad<span class="op">=</span><span class="dv">10</span>)</span>
-<span id="cb67-32"><a href="#cb67-32" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">0</span>].axis(<span class="st">'off'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>(np.float64(-0.5), np.float64(249.5), np.float64(374.5), np.float64(-0.5))</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb69"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb69-1"><a href="#cb69-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw grid lines</span></span>
-<span id="cb69-2"><a href="#cb69-2" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(grid_rows <span class="op">+</span> <span class="dv">1</span>):</span>
-<span id="cb69-3"><a href="#cb69-3" aria-hidden="true" tabindex="-1"></a>    y <span class="op">=</span> i <span class="op">*</span> section_h</span>
-<span id="cb69-4"><a href="#cb69-4" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">0</span>].axhline(y, color<span class="op">=</span><span class="st">'red'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
-<span id="cb69-5"><a href="#cb69-5" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(grid_cols <span class="op">+</span> <span class="dv">1</span>):</span>
-<span id="cb69-6"><a href="#cb69-6" aria-hidden="true" tabindex="-1"></a>    x <span class="op">=</span> j <span class="op">*</span> section_w</span>
-<span id="cb69-7"><a href="#cb69-7" aria-hidden="true" tabindex="-1"></a>    axes[<span class="dv">0</span>].axvline(x, color<span class="op">=</span><span class="st">'red'</span>, linewidth<span class="op">=</span><span class="fl">0.5</span>, alpha<span class="op">=</span><span class="fl">0.5</span>)</span>
-<span id="cb69-8"><a href="#cb69-8" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-9"><a href="#cb69-9" aria-hidden="true" tabindex="-1"></a><span class="co"># Show heatmap of average tones</span></span>
-<span id="cb69-10"><a href="#cb69-10" aria-hidden="true" tabindex="-1"></a>im <span class="op">=</span> axes[<span class="dv">1</span>].imshow(average_tones, cmap<span class="op">=</span><span class="st">'gray'</span>, vmin<span class="op">=</span><span class="dv">0</span>, vmax<span class="op">=</span><span class="dv">1</span>, aspect<span class="op">=</span><span class="st">'auto'</span>)</span>
-<span id="cb69-11"><a href="#cb69-11" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].set_title(<span class="st">'Average Tone by Section'</span>, fontsize<span class="op">=</span><span class="dv">14</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>, pad<span class="op">=</span><span class="dv">10</span>)</span>
-<span id="cb69-12"><a href="#cb69-12" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].set_xlabel(<span class="st">'Column'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
-<span id="cb69-13"><a href="#cb69-13" aria-hidden="true" tabindex="-1"></a>axes[<span class="dv">1</span>].set_ylabel(<span class="st">'Row'</span>, fontsize<span class="op">=</span><span class="dv">12</span>)</span>
-<span id="cb69-14"><a href="#cb69-14" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-15"><a href="#cb69-15" aria-hidden="true" tabindex="-1"></a><span class="co"># Add text annotations showing average tone values</span></span>
-<span id="cb69-16"><a href="#cb69-16" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(grid_rows):</span>
-<span id="cb69-17"><a href="#cb69-17" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(grid_cols):</span>
-<span id="cb69-18"><a href="#cb69-18" aria-hidden="true" tabindex="-1"></a>        tone <span class="op">=</span> average_tones[i, j]</span>
-<span id="cb69-19"><a href="#cb69-19" aria-hidden="true" tabindex="-1"></a>        <span class="co"># Use white text for dark sections, black text for light sections</span></span>
-<span id="cb69-20"><a href="#cb69-20" aria-hidden="true" tabindex="-1"></a>        text_color <span class="op">=</span> <span class="st">'white'</span> <span class="cf">if</span> tone <span class="op">&lt;</span> <span class="fl">0.5</span> <span class="cf">else</span> <span class="st">'black'</span></span>
-<span id="cb69-21"><a href="#cb69-21" aria-hidden="true" tabindex="-1"></a>        axes[<span class="dv">1</span>].text(j, i, <span class="ss">f'</span><span class="sc">{</span>tone<span class="sc">:.2f}</span><span class="ss">'</span>, ha<span class="op">=</span><span class="st">'center'</span>, va<span class="op">=</span><span class="st">'center'</span>, </span>
-<span id="cb69-22"><a href="#cb69-22" aria-hidden="true" tabindex="-1"></a>                     color<span class="op">=</span>text_color, fontsize<span class="op">=</span><span class="dv">6</span>, fontweight<span class="op">=</span><span class="st">'bold'</span>)</span>
-<span id="cb69-23"><a href="#cb69-23" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb69-24"><a href="#cb69-24" aria-hidden="true" tabindex="-1"></a>plt.colorbar(im, ax<span class="op">=</span>axes[<span class="dv">1</span>], label<span class="op">=</span><span class="st">'Average Brightness'</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>&lt;matplotlib.colorbar.Colorbar object at 0x000001ED157957F0&gt;</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb71"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb71-1"><a href="#cb71-1" aria-hidden="true" tabindex="-1"></a>plt.tight_layout()</span>
-<span id="cb71-2"><a href="#cb71-2" aria-hidden="true" tabindex="-1"></a>plt.show()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="index_files/figure-html/tone-analysis-1.png" class="img-fluid figure-img" width="672"></p>
-<figcaption>Grid showing average tone in each section</figcaption>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb72"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb72-1"><a href="#cb72-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print summary statistics</span></span>
-<span id="cb72-2"><a href="#cb72-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Grid size: </span><span class="sc">{</span>grid_rows<span class="sc">}</span><span class="ss"> rows × </span><span class="sc">{</span>grid_cols<span class="sc">}</span><span class="ss"> columns"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Grid size: 16 rows × 12 columns</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb74"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb74-1"><a href="#cb74-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"Section size: approximately </span><span class="sc">{</span>section_h<span class="sc">}</span><span class="ss"> × </span><span class="sc">{</span>section_w<span class="sc">}</span><span class="ss"> pixels"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Section size: approximately 23 × 20 pixels</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb76"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb76-1"><a href="#cb76-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Average tone statistics:"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Average tone statistics:</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb78"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb78-1"><a href="#cb78-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  Overall mean: </span><span class="sc">{</span>np<span class="sc">.</span>mean(average_tones)<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  Overall mean: 0.636</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb80"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb80-1"><a href="#cb80-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  Overall std: </span><span class="sc">{</span>np<span class="sc">.</span>std(average_tones)<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  Overall std: 0.321</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb82"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb82-1"><a href="#cb82-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  Min: </span><span class="sc">{</span>np<span class="sc">.</span><span class="bu">min</span>(average_tones)<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  Min: 0.072</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb84"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb84-1"><a href="#cb84-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"  Max: </span><span class="sc">{</span>np<span class="sc">.</span><span class="bu">max</span>(average_tones)<span class="sc">:.3f}</span><span class="ss">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  Max: 0.945</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb86"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb86-1"><a href="#cb86-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find sections with tones close to skin tone (around 0.7)</span></span>
-<span id="cb86-2"><a href="#cb86-2" aria-hidden="true" tabindex="-1"></a>skin_tone_target <span class="op">=</span> <span class="fl">0.7</span></span>
-<span id="cb86-3"><a href="#cb86-3" aria-hidden="true" tabindex="-1"></a>tolerance <span class="op">=</span> <span class="fl">0.1</span></span>
-<span id="cb86-4"><a href="#cb86-4" aria-hidden="true" tabindex="-1"></a>skin_tone_sections <span class="op">=</span> [(i, j, tone) <span class="cf">for</span> i, j, tone <span class="kw">in</span> section_coords </span>
-<span id="cb86-5"><a href="#cb86-5" aria-hidden="true" tabindex="-1"></a>                       <span class="cf">if</span> <span class="bu">abs</span>(tone <span class="op">-</span> skin_tone_target) <span class="op">&lt;</span> tolerance]</span>
-<span id="cb86-6"><a href="#cb86-6" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb86-7"><a href="#cb86-7" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Sections with tone close to skin tone (0.7 ± </span><span class="sc">{</span>tolerance<span class="sc">}</span><span class="ss">):"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Sections with tone close to skin tone (0.7 ± 0.1):</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb88"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb88-1"><a href="#cb88-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span> skin_tone_sections:</span>
-<span id="cb88-2"><a href="#cb88-2" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> i, j, tone <span class="kw">in</span> <span class="bu">sorted</span>(skin_tone_sections, key<span class="op">=</span><span class="kw">lambda</span> x: <span class="bu">abs</span>(x[<span class="dv">2</span>] <span class="op">-</span> skin_tone_target)):</span>
-<span id="cb88-3"><a href="#cb88-3" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"  Row </span><span class="sc">{</span>i<span class="sc">}</span><span class="ss">, Col </span><span class="sc">{</span>j<span class="sc">}</span><span class="ss">: </span><span class="sc">{</span>tone<span class="sc">:.3f}</span><span class="ss">"</span>)</span>
-<span id="cb88-4"><a href="#cb88-4" aria-hidden="true" tabindex="-1"></a><span class="cf">else</span>:</span>
-<span id="cb88-5"><a href="#cb88-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="st">"  None found"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  Row 4, Col 6: 0.704
-  Row 9, Col 6: 0.709
-  Row 3, Col 6: 0.690
-  Row 3, Col 7: 0.711
-  Row 3, Col 3: 0.714
-  Row 4, Col 7: 0.685
-  Row 10, Col 6: 0.684
-  Row 9, Col 7: 0.679
-  Row 8, Col 4: 0.672
-  Row 7, Col 4: 0.736
-  Row 6, Col 4: 0.659
-  Row 8, Col 7: 0.742
-  Row 9, Col 5: 0.655
-  Row 1, Col 7: 0.654
-  Row 10, Col 7: 0.749
-  Row 7, Col 6: 0.646
-  Row 1, Col 4: 0.758
-  Row 7, Col 7: 0.637
-  Row 9, Col 4: 0.635
-  Row 3, Col 5: 0.634
-  Row 1, Col 5: 0.633
-  Row 12, Col 5: 0.632
-  Row 6, Col 7: 0.631
-  Row 11, Col 8: 0.628
-  Row 4, Col 8: 0.776
-  Row 12, Col 8: 0.782
-  Row 5, Col 3: 0.785
-  Row 4, Col 5: 0.614
-  Row 5, Col 8: 0.794
-  Row 8, Col 3: 0.796
-  Row 4, Col 3: 0.797
-  Row 6, Col 6: 0.601
-  Row 2, Col 8: 0.600</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb90"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb90-1"><a href="#cb90-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print full grid as table</span></span>
-<span id="cb90-2"><a href="#cb90-2" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="ss">f"</span><span class="ch">\n</span><span class="ss">Full grid of average tones (row, col):"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Full grid of average tones (row, col):</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb92"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb92-1"><a href="#cb92-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>(<span class="st">"     "</span>, end<span class="op">=</span><span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode cell-code" id="cb93"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb93-1"><a href="#cb93-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(grid_cols):</span>
-<span id="cb93-2"><a href="#cb93-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Col</span><span class="sc">{</span>j<span class="sc">:2d}</span><span class="ss"> "</span>, end<span class="op">=</span><span class="st">""</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Col 0 Col 1 Col 2 Col 3 Col 4 Col 5 Col 6 Col 7 Col 8 Col 9 Col10 Col11 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb95"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb95-1"><a href="#cb95-1" aria-hidden="true" tabindex="-1"></a><span class="bu">print</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode cell-code" id="cb96"><pre class="sourceCode python code-with-copy"><code class="sourceCode python"><span id="cb96-1"><a href="#cb96-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span> i <span class="kw">in</span> <span class="bu">range</span>(grid_rows):</span>
-<span id="cb96-2"><a href="#cb96-2" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>(<span class="ss">f"Row</span><span class="sc">{</span>i<span class="sc">:2d}</span><span class="ss"> "</span>, end<span class="op">=</span><span class="st">""</span>)</span>
-<span id="cb96-3"><a href="#cb96-3" aria-hidden="true" tabindex="-1"></a>    <span class="cf">for</span> j <span class="kw">in</span> <span class="bu">range</span>(grid_cols):</span>
-<span id="cb96-4"><a href="#cb96-4" aria-hidden="true" tabindex="-1"></a>        <span class="bu">print</span>(<span class="ss">f"</span><span class="sc">{</span>average_tones[i, j]<span class="sc">:.3f}</span><span class="ss"> "</span>, end<span class="op">=</span><span class="st">""</span>)</span>
-<span id="cb96-5"><a href="#cb96-5" aria-hidden="true" tabindex="-1"></a>    <span class="bu">print</span>()</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Row 0 0.945 0.945 0.945 0.945 0.945 0.945 0.945 0.945 0.945 0.945 0.945 0.945 
-Row 1 0.945 0.945 0.945 0.945 0.758 0.633 0.502 0.654 0.932 0.945 0.945 0.945 
-Row 2 0.945 0.945 0.945 0.854 0.241 0.282 0.324 0.299 0.600 0.945 0.945 0.945 
-Row 3 0.945 0.945 0.945 0.714 0.448 0.634 0.690 0.711 0.582 0.945 0.945 0.945 
-Row 4 0.945 0.945 0.945 0.797 0.543 0.614 0.704 0.685 0.776 0.945 0.945 0.945 
-Row 5 0.945 0.945 0.945 0.785 0.578 0.565 0.566 0.584 0.794 0.945 0.945 0.945 
-Row 6 0.945 0.945 0.945 0.893 0.659 0.599 0.601 0.631 0.847 0.945 0.945 0.945 
-Row 7 0.945 0.945 0.945 0.945 0.736 0.589 0.646 0.637 0.905 0.945 0.945 0.945 
-Row 8 0.945 0.945 0.945 0.796 0.672 0.571 0.579 0.742 0.889 0.945 0.945 0.945 
-Row 9 0.945 0.812 0.470 0.166 0.635 0.655 0.709 0.679 0.384 0.563 0.804 0.937 
-Row10 0.252 0.123 0.110 0.117 0.378 0.833 0.684 0.749 0.472 0.226 0.252 0.475 
-Row11 0.111 0.122 0.120 0.126 0.167 0.883 0.864 0.944 0.628 0.234 0.229 0.264 
-Row12 0.110 0.117 0.125 0.120 0.141 0.632 0.893 0.925 0.782 0.230 0.230 0.227 
-Row13 0.103 0.118 0.128 0.128 0.139 0.357 0.930 0.904 0.867 0.215 0.224 0.224 
-Row14 0.086 0.116 0.124 0.128 0.127 0.171 0.826 0.919 0.888 0.227 0.211 0.212 
-Row15 0.072 0.083 0.122 0.138 0.120 0.134 0.572 0.934 0.849 0.230 0.217 0.181 </code></pre>
-</div>
-</div>
+
 </div>
 <div id="tabset-9-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-9-2-tab">
-<div class="cell">
-<div class="sourceCode cell-code" id="cb98"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb98-1"><a href="#cb98-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Divide image into a grid of sections</span></span>
-<span id="cb98-2"><a href="#cb98-2" aria-hidden="true" tabindex="-1"></a>grid_rows <span class="ot">&lt;-</span> <span class="dv">16</span></span>
-<span id="cb98-3"><a href="#cb98-3" aria-hidden="true" tabindex="-1"></a>grid_cols <span class="ot">&lt;-</span> <span class="dv">12</span></span>
-<span id="cb98-4"><a href="#cb98-4" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb98-5"><a href="#cb98-5" aria-hidden="true" tabindex="-1"></a>h <span class="ot">&lt;-</span> <span class="fu">nrow</span>(img_matrix)</span>
-<span id="cb98-6"><a href="#cb98-6" aria-hidden="true" tabindex="-1"></a>w <span class="ot">&lt;-</span> <span class="fu">ncol</span>(img_matrix)</span>
-<span id="cb98-7"><a href="#cb98-7" aria-hidden="true" tabindex="-1"></a>section_h <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(h <span class="sc">/</span> grid_rows)</span>
-<span id="cb98-8"><a href="#cb98-8" aria-hidden="true" tabindex="-1"></a>section_w <span class="ot">&lt;-</span> <span class="fu">as.integer</span>(w <span class="sc">/</span> grid_cols)</span>
-<span id="cb98-9"><a href="#cb98-9" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb98-10"><a href="#cb98-10" aria-hidden="true" tabindex="-1"></a><span class="co"># Create arrays to store average tones</span></span>
-<span id="cb98-11"><a href="#cb98-11" aria-hidden="true" tabindex="-1"></a>average_tones <span class="ot">&lt;-</span> <span class="fu">matrix</span>(<span class="dv">0</span>, <span class="at">nrow =</span> grid_rows, <span class="at">ncol =</span> grid_cols)</span>
-<span id="cb98-12"><a href="#cb98-12" aria-hidden="true" tabindex="-1"></a>section_coords <span class="ot">&lt;-</span> <span class="fu">list</span>()</span>
-<span id="cb98-13"><a href="#cb98-13" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb98-14"><a href="#cb98-14" aria-hidden="true" tabindex="-1"></a><span class="co"># Compute average tone for each section</span></span>
-<span id="cb98-15"><a href="#cb98-15" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>grid_rows) {</span>
-<span id="cb98-16"><a href="#cb98-16" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>grid_cols) {</span>
-<span id="cb98-17"><a href="#cb98-17" aria-hidden="true" tabindex="-1"></a>    y_start <span class="ot">&lt;-</span> (i <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> section_h <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb98-18"><a href="#cb98-18" aria-hidden="true" tabindex="-1"></a>    y_end <span class="ot">&lt;-</span> <span class="cf">if</span>(i <span class="sc">&lt;</span> grid_rows) i <span class="sc">*</span> section_h <span class="cf">else</span> h</span>
-<span id="cb98-19"><a href="#cb98-19" aria-hidden="true" tabindex="-1"></a>    x_start <span class="ot">&lt;-</span> (j <span class="sc">-</span> <span class="dv">1</span>) <span class="sc">*</span> section_w <span class="sc">+</span> <span class="dv">1</span></span>
-<span id="cb98-20"><a href="#cb98-20" aria-hidden="true" tabindex="-1"></a>    x_end <span class="ot">&lt;-</span> <span class="cf">if</span>(j <span class="sc">&lt;</span> grid_cols) j <span class="sc">*</span> section_w <span class="cf">else</span> w</span>
-<span id="cb98-21"><a href="#cb98-21" aria-hidden="true" tabindex="-1"></a>    </span>
-<span id="cb98-22"><a href="#cb98-22" aria-hidden="true" tabindex="-1"></a>    section <span class="ot">&lt;-</span> img_matrix[y_start<span class="sc">:</span>y_end, x_start<span class="sc">:</span>x_end]</span>
-<span id="cb98-23"><a href="#cb98-23" aria-hidden="true" tabindex="-1"></a>    avg_tone <span class="ot">&lt;-</span> <span class="fu">mean</span>(section)</span>
-<span id="cb98-24"><a href="#cb98-24" aria-hidden="true" tabindex="-1"></a>    average_tones[i, j] <span class="ot">&lt;-</span> avg_tone</span>
-<span id="cb98-25"><a href="#cb98-25" aria-hidden="true" tabindex="-1"></a>    section_coords[[<span class="fu">length</span>(section_coords) <span class="sc">+</span> <span class="dv">1</span>]] <span class="ot">&lt;-</span> <span class="fu">c</span>(i, j, avg_tone)</span>
-<span id="cb98-26"><a href="#cb98-26" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb98-27"><a href="#cb98-27" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb98-28"><a href="#cb98-28" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb98-29"><a href="#cb98-29" aria-hidden="true" tabindex="-1"></a><span class="co"># Display the grid with average tones</span></span>
-<span id="cb98-30"><a href="#cb98-30" aria-hidden="true" tabindex="-1"></a><span class="fu">par</span>(<span class="at">mfrow =</span> <span class="fu">c</span>(<span class="dv">1</span>, <span class="dv">2</span>), <span class="at">mar =</span> <span class="fu">c</span>(<span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>, <span class="dv">2</span>))</span>
-<span id="cb98-31"><a href="#cb98-31" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb98-32"><a href="#cb98-32" aria-hidden="true" tabindex="-1"></a><span class="co"># Show original image with grid overlay</span></span>
-<span id="cb98-33"><a href="#cb98-33" aria-hidden="true" tabindex="-1"></a><span class="fu">plot</span>(img_resized, <span class="at">axes =</span> <span class="cn">FALSE</span>, <span class="at">main =</span> <span class="st">"Original Image with Grid"</span>)</span>
-<span id="cb98-34"><a href="#cb98-34" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb98-35"><a href="#cb98-35" aria-hidden="true" tabindex="-1"></a><span class="co"># Draw grid lines (approximate)</span></span>
-<span id="cb98-36"><a href="#cb98-36" aria-hidden="true" tabindex="-1"></a><span class="co"># Note: imager plots use different coordinate system, so grid lines are approximate</span></span>
-<span id="cb98-37"><a href="#cb98-37" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">0</span><span class="sc">:</span>grid_rows) {</span>
-<span id="cb98-38"><a href="#cb98-38" aria-hidden="true" tabindex="-1"></a>  y <span class="ot">&lt;-</span> i <span class="sc">*</span> section_h</span>
-<span id="cb98-39"><a href="#cb98-39" aria-hidden="true" tabindex="-1"></a>  <span class="fu">abline</span>(<span class="at">h =</span> y, <span class="at">col =</span> <span class="st">'red'</span>, <span class="at">lwd =</span> <span class="fl">0.5</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span>
-<span id="cb98-40"><a href="#cb98-40" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb98-41"><a href="#cb98-41" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">0</span><span class="sc">:</span>grid_cols) {</span>
-<span id="cb98-42"><a href="#cb98-42" aria-hidden="true" tabindex="-1"></a>  x <span class="ot">&lt;-</span> j <span class="sc">*</span> section_w</span>
-<span id="cb98-43"><a href="#cb98-43" aria-hidden="true" tabindex="-1"></a>  <span class="fu">abline</span>(<span class="at">v =</span> x, <span class="at">col =</span> <span class="st">'red'</span>, <span class="at">lwd =</span> <span class="fl">0.5</span>, <span class="at">lty =</span> <span class="dv">2</span>)</span>
-<span id="cb98-44"><a href="#cb98-44" aria-hidden="true" tabindex="-1"></a>}</span>
-<span id="cb98-45"><a href="#cb98-45" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb98-46"><a href="#cb98-46" aria-hidden="true" tabindex="-1"></a><span class="co"># Show heatmap of average tones</span></span>
-<span id="cb98-47"><a href="#cb98-47" aria-hidden="true" tabindex="-1"></a><span class="fu">image</span>(<span class="dv">1</span><span class="sc">:</span>grid_cols, <span class="dv">1</span><span class="sc">:</span>grid_rows, <span class="fu">t</span>(average_tones), </span>
-<span id="cb98-48"><a href="#cb98-48" aria-hidden="true" tabindex="-1"></a>      <span class="at">col =</span> <span class="fu">gray</span>(<span class="fu">seq</span>(<span class="dv">0</span>, <span class="dv">1</span>, <span class="at">length.out =</span> <span class="dv">256</span>)),</span>
-<span id="cb98-49"><a href="#cb98-49" aria-hidden="true" tabindex="-1"></a>      <span class="at">xlab =</span> <span class="st">"Column"</span>, <span class="at">ylab =</span> <span class="st">"Row"</span>,</span>
-<span id="cb98-50"><a href="#cb98-50" aria-hidden="true" tabindex="-1"></a>      <span class="at">main =</span> <span class="st">"Average Tone by Section"</span>,</span>
-<span id="cb98-51"><a href="#cb98-51" aria-hidden="true" tabindex="-1"></a>      <span class="at">axes =</span> <span class="cn">TRUE</span>)</span>
-<span id="cb98-52"><a href="#cb98-52" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">1</span>, <span class="at">at =</span> <span class="dv">1</span><span class="sc">:</span>grid_cols)</span>
-<span id="cb98-53"><a href="#cb98-53" aria-hidden="true" tabindex="-1"></a><span class="fu">axis</span>(<span class="dv">2</span>, <span class="at">at =</span> <span class="dv">1</span><span class="sc">:</span>grid_rows)</span>
-<span id="cb98-54"><a href="#cb98-54" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb98-55"><a href="#cb98-55" aria-hidden="true" tabindex="-1"></a><span class="co"># Add text annotations showing average tone values</span></span>
-<span id="cb98-56"><a href="#cb98-56" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>grid_rows) {</span>
-<span id="cb98-57"><a href="#cb98-57" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>grid_cols) {</span>
-<span id="cb98-58"><a href="#cb98-58" aria-hidden="true" tabindex="-1"></a>    tone <span class="ot">&lt;-</span> average_tones[i, j]</span>
-<span id="cb98-59"><a href="#cb98-59" aria-hidden="true" tabindex="-1"></a>    <span class="co"># Use white text for dark sections, black text for light sections</span></span>
-<span id="cb98-60"><a href="#cb98-60" aria-hidden="true" tabindex="-1"></a>    text_color <span class="ot">&lt;-</span> <span class="cf">if</span>(tone <span class="sc">&lt;</span> <span class="fl">0.5</span>) <span class="st">'white'</span> <span class="cf">else</span> <span class="st">'black'</span></span>
-<span id="cb98-61"><a href="#cb98-61" aria-hidden="true" tabindex="-1"></a>    <span class="fu">text</span>(j, i, <span class="fu">sprintf</span>(<span class="st">'%.2f'</span>, tone), </span>
-<span id="cb98-62"><a href="#cb98-62" aria-hidden="true" tabindex="-1"></a>         <span class="at">col =</span> text_color, <span class="at">cex =</span> <span class="fl">0.4</span>, <span class="at">font =</span> <span class="dv">2</span>)</span>
-<span id="cb98-63"><a href="#cb98-63" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb98-64"><a href="#cb98-64" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="index_files/figure-html/tone-analysis-r-3.png" class="img-fluid figure-img" width="1152"></p>
-<figcaption>Grid showing average tone in each section</figcaption>
-</figure>
-</div>
-</div>
-<div class="sourceCode cell-code" id="cb99"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb99-1"><a href="#cb99-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print summary statistics</span></span>
-<span id="cb99-2"><a href="#cb99-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Grid size:"</span>, grid_rows, <span class="st">"rows ×"</span>, grid_cols, <span class="st">"columns</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Grid size: 16 rows × 12 columns</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb101"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb101-1"><a href="#cb101-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"Section size: approximately"</span>, section_h, <span class="st">"×"</span>, section_w, <span class="st">"pixels</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Section size: approximately 23 × 20 pixels</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb103"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb103-1"><a href="#cb103-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Average tone statistics:</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Average tone statistics:</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb105"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb105-1"><a href="#cb105-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"  Overall mean:"</span>, <span class="fu">sprintf</span>(<span class="st">"%.3f"</span>, <span class="fu">mean</span>(average_tones)), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  Overall mean: 0.666 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb107"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb107-1"><a href="#cb107-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"  Overall std:"</span>, <span class="fu">sprintf</span>(<span class="st">"%.3f"</span>, <span class="fu">sd</span>(average_tones)), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  Overall std: 0.333 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb109"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb109-1"><a href="#cb109-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"  Min:"</span>, <span class="fu">sprintf</span>(<span class="st">"%.3f"</span>, <span class="fu">min</span>(average_tones)), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  Min: 0.068 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb111"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb111-1"><a href="#cb111-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"  Max:"</span>, <span class="fu">sprintf</span>(<span class="st">"%.3f"</span>, <span class="fu">max</span>(average_tones)), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  Max: 0.949 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb113"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb113-1"><a href="#cb113-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Find sections with tones close to skin tone (around 0.7)</span></span>
-<span id="cb113-2"><a href="#cb113-2" aria-hidden="true" tabindex="-1"></a>skin_tone_target <span class="ot">&lt;-</span> <span class="fl">0.7</span></span>
-<span id="cb113-3"><a href="#cb113-3" aria-hidden="true" tabindex="-1"></a>tolerance <span class="ot">&lt;-</span> <span class="fl">0.1</span></span>
-<span id="cb113-4"><a href="#cb113-4" aria-hidden="true" tabindex="-1"></a>skin_tone_sections <span class="ot">&lt;-</span> <span class="fu">Filter</span>(<span class="cf">function</span>(x) <span class="fu">abs</span>(x[<span class="dv">3</span>] <span class="sc">-</span> skin_tone_target) <span class="sc">&lt;</span> tolerance, section_coords)</span>
-<span id="cb113-5"><a href="#cb113-5" aria-hidden="true" tabindex="-1"></a></span>
-<span id="cb113-6"><a href="#cb113-6" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Sections with tone close to skin tone (0.7 ±"</span>, tolerance, <span class="st">"):</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Sections with tone close to skin tone (0.7 ± 0.1 ):</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb115"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb115-1"><a href="#cb115-1" aria-hidden="true" tabindex="-1"></a><span class="cf">if</span>(<span class="fu">length</span>(skin_tone_sections) <span class="sc">&gt;</span> <span class="dv">0</span>) {</span>
-<span id="cb115-2"><a href="#cb115-2" aria-hidden="true" tabindex="-1"></a>  <span class="co"># Sort by distance from target</span></span>
-<span id="cb115-3"><a href="#cb115-3" aria-hidden="true" tabindex="-1"></a>  sorted_sections <span class="ot">&lt;-</span> skin_tone_sections[<span class="fu">order</span>(<span class="fu">sapply</span>(skin_tone_sections, <span class="cf">function</span>(x) <span class="fu">abs</span>(x[<span class="dv">3</span>] <span class="sc">-</span> skin_tone_target)))]</span>
-<span id="cb115-4"><a href="#cb115-4" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(section <span class="cf">in</span> sorted_sections) {</span>
-<span id="cb115-5"><a href="#cb115-5" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="st">"  Row"</span>, section[<span class="dv">1</span>], <span class="st">", Col"</span>, section[<span class="dv">2</span>], <span class="st">":"</span>, <span class="fu">sprintf</span>(<span class="st">"%.3f"</span>, section[<span class="dv">3</span>]), <span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb115-6"><a href="#cb115-6" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb115-7"><a href="#cb115-7" aria-hidden="true" tabindex="-1"></a>} <span class="cf">else</span> {</span>
-<span id="cb115-8"><a href="#cb115-8" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"  None found</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb115-9"><a href="#cb115-9" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>  Row 2 , Col 8 : 0.688 
-  Row 5 , Col 5 : 0.719 
-  Row 9 , Col 7 : 0.732 
-  Row 2 , Col 6 : 0.666 
-  Row 4 , Col 4 : 0.738 
-  Row 10 , Col 5 : 0.658 
-  Row 9 , Col 6 : 0.753 
-  Row 6 , Col 8 : 0.759 
-  Row 6 , Col 6 : 0.760 
-  Row 6 , Col 7 : 0.762 
-  Row 6 , Col 5 : 0.765 
-  Row 3 , Col 9 : 0.631 
-  Row 13 , Col 6 : 0.628 
-  Row 4 , Col 9 : 0.626 
-  Row 12 , Col 9 : 0.625 
-  Row 13 , Col 9 : 0.780 
-  Row 2 , Col 5 : 0.783 
-  Row 8 , Col 6 : 0.790 
-  Row 7 , Col 7 : 0.795 
-  Row 8 , Col 8 : 0.796 
-  Row 10 , Col 11 : 0.798 
-  Row 9 , Col 4 : 0.800 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb117"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb117-1"><a href="#cb117-1" aria-hidden="true" tabindex="-1"></a><span class="co"># Print full grid as table</span></span>
-<span id="cb117-2"><a href="#cb117-2" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">Full grid of average tones (row, col):</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>
-Full grid of average tones (row, col):</code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb119"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb119-1"><a href="#cb119-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"     "</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode cell-code" id="cb120"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb120-1"><a href="#cb120-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>grid_cols) {</span>
-<span id="cb120-2"><a href="#cb120-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"Col%2d "</span>, j))</span>
-<span id="cb120-3"><a href="#cb120-3" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Col 1 Col 2 Col 3 Col 4 Col 5 Col 6 Col 7 Col 8 Col 9 Col10 Col11 Col12 </code></pre>
-</div>
-<div class="sourceCode cell-code" id="cb122"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb122-1"><a href="#cb122-1" aria-hidden="true" tabindex="-1"></a><span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="sourceCode cell-code" id="cb123"><pre class="sourceCode r code-with-copy"><code class="sourceCode r"><span id="cb123-1"><a href="#cb123-1" aria-hidden="true" tabindex="-1"></a><span class="cf">for</span>(i <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>grid_rows) {</span>
-<span id="cb123-2"><a href="#cb123-2" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"Row%2d "</span>, i))</span>
-<span id="cb123-3"><a href="#cb123-3" aria-hidden="true" tabindex="-1"></a>  <span class="cf">for</span>(j <span class="cf">in</span> <span class="dv">1</span><span class="sc">:</span>grid_cols) {</span>
-<span id="cb123-4"><a href="#cb123-4" aria-hidden="true" tabindex="-1"></a>    <span class="fu">cat</span>(<span class="fu">sprintf</span>(<span class="st">"%.3f "</span>, average_tones[i, j]))</span>
-<span id="cb123-5"><a href="#cb123-5" aria-hidden="true" tabindex="-1"></a>  }</span>
-<span id="cb123-6"><a href="#cb123-6" aria-hidden="true" tabindex="-1"></a>  <span class="fu">cat</span>(<span class="st">"</span><span class="sc">\n</span><span class="st">"</span>)</span>
-<span id="cb123-7"><a href="#cb123-7" aria-hidden="true" tabindex="-1"></a>}</span></code><button title="Copy to Clipboard" class="code-copy-button"><i class="bi"></i></button></pre></div>
-<div class="cell-output cell-output-stdout">
-<pre><code>Row 1 0.949 0.949 0.949 0.949 0.949 0.949 0.949 0.949 0.949 0.949 0.949 0.949 
-Row 2 0.949 0.949 0.949 0.949 0.783 0.666 0.555 0.688 0.938 0.949 0.949 0.949 
-Row 3 0.949 0.949 0.949 0.867 0.305 0.380 0.436 0.384 0.631 0.949 0.949 0.949 
-Row 4 0.949 0.949 0.949 0.738 0.596 0.859 0.904 0.885 0.626 0.949 0.949 0.949 
-Row 5 0.949 0.949 0.949 0.820 0.719 0.817 0.904 0.846 0.806 0.949 0.949 0.949 
-Row 6 0.949 0.949 0.949 0.880 0.765 0.760 0.762 0.759 0.876 0.949 0.949 0.949 
-Row 7 0.949 0.949 0.949 0.930 0.860 0.821 0.795 0.825 0.914 0.949 0.949 0.949 
-Row 8 0.949 0.949 0.949 0.949 0.869 0.790 0.849 0.796 0.928 0.949 0.949 0.949 
-Row 9 0.949 0.949 0.949 0.800 0.805 0.753 0.732 0.833 0.891 0.949 0.949 0.949 
-Row10 0.949 0.817 0.471 0.165 0.658 0.846 0.882 0.805 0.357 0.549 0.798 0.941 
-Row11 0.253 0.120 0.107 0.115 0.379 0.881 0.884 0.825 0.454 0.200 0.222 0.451 
-Row12 0.109 0.117 0.116 0.123 0.164 0.884 0.880 0.944 0.625 0.210 0.203 0.232 
-Row13 0.105 0.112 0.120 0.116 0.138 0.628 0.893 0.925 0.780 0.207 0.204 0.197 
-Row14 0.101 0.114 0.122 0.124 0.135 0.350 0.927 0.904 0.868 0.195 0.198 0.192 
-Row15 0.082 0.115 0.121 0.125 0.123 0.165 0.820 0.919 0.890 0.211 0.186 0.182 
-Row16 0.068 0.083 0.119 0.138 0.117 0.127 0.562 0.934 0.850 0.222 0.192 0.156 </code></pre>
-</div>
-</div>
+
 </div>
 </div>
 </div>
@@ -1430,37 +299,35 @@ Row16 0.068 0.083 0.119 0.138 0.117 0.127 0.562 0.934 0.850 0.222 0.192 0.156 </
 <ul class="nav nav-tabs" role="tablist"><li class="nav-item" role="presentation"><a class="nav-link active" id="tabset-10-1-tab" data-bs-toggle="tab" data-bs-target="#tabset-10-1" role="tab" aria-controls="tabset-10-1" aria-selected="true" href="">Python</a></li><li class="nav-item" role="presentation"><a class="nav-link" id="tabset-10-2-tab" data-bs-toggle="tab" data-bs-target="#tabset-10-2" role="tab" aria-controls="tabset-10-2" aria-selected="false" href="">R</a></li></ul>
 <div class="tab-content">
 <div id="tabset-10-1" class="tab-pane active" role="tabpanel" aria-labelledby="tabset-10-1-tab">
-<div class="cell">
-<div class="cell-output cell-output-stdout">
-<pre><code>(np.float64(-0.5), np.float64(249.5), np.float64(374.5), np.float64(-0.5))</code></pre>
-</div>
-<div class="cell-output cell-output-stdout">
-<pre><code>(np.float64(-0.5), np.float64(249.5), np.float64(374.5), np.float64(-0.5))</code></pre>
-</div>
-<div class="cell-output-display">
-<div class="quarto-figure quarto-figure-center">
-<figure class="figure">
-<p><img src="index_files/figure-html/challenge-comparison-1.png" class="img-fluid figure-img" width="960"></p>
-<figcaption>Side-by-side comparison of original and stippled images</figcaption>
-</figure>
-</div>
-</div>
-</div>
+
 </div>
 <div id="tabset-10-2" class="tab-pane" role="tabpanel" aria-labelledby="tabset-10-2-tab">
-<div class="cell">
-<div class="cell-output-display">
+
+</div>
+</div>
+</div>
 <div class="quarto-figure quarto-figure-center">
 <figure class="figure">
-<p><img src="index_files/figure-html/challenge-comparison-r-3.png" class="img-fluid figure-img" width="960"></p>
-<figcaption>Side-by-side comparison of original and stippled images</figcaption>
+<p><img src="outputs/IMG_4950_comparison.png" class="img-fluid figure-img"></p>
+<figcaption>Final comparison between the original portrait, the tuned importance map, and the resulting stipple artwork.</figcaption>
 </figure>
 </div>
+<div class="quarto-figure quarto-figure-center">
+<figure class="figure">
+<p><img src="outputs/IMG_4950_progressive.gif" class="img-fluid figure-img"></p>
+<figcaption>Progressive stippling animation showing the sequential build-up of dots in 120-point increments.</figcaption>
+</figure>
 </div>
-</div>
-</div>
-</div>
-</div>
+</section>
+<section id="my-part-1-submission" class="level2">
+<h2 class="anchored" data-anchor-id="my-part-1-submission">My Part 1 Submission</h2>
+<ul>
+<li><strong>Image prep:</strong> Converted <code>IMG_4950.jpeg</code> to grayscale, resized the long edge to 512 px, and generated an importance map with extreme tone downweighting and a boosted mid-tone band.</li>
+<li><strong>Tone analysis:</strong> A 16×12 brightness grid showed the face clustering around 0.68, so I set the mid-tone Gaussian center to 0.68 with tighter σ = 0.18 and suppressed values below 0.25/above 0.85.</li>
+<li><strong>Stippling:</strong> Ran the modified void-and-cluster algorithm (<code>σ = 1.0</code>, coverage ≈ 8.5%) with toroidal Gaussian repulsion to place 16,711 stipple points.</li>
+<li><strong>Outputs:</strong> Saved the final stipple render (<code>outputs/IMG_4950_stipple.png</code>), the three-panel comparison shown above, and the progressive animation sampled every 120 points.</li>
+</ul>
+<p>These artifacts satisfy the deliverables for Part 1 of the challenge brief at <a href="https://flyaflya.github.io/stippleChallenge/">https://flyaflya.github.io/stippleChallenge/</a>.</p>
 </section>
 </section>
 
@@ -1517,13 +384,14 @@ Row16 0.068 0.083 0.119 0.138 0.117 0.127 0.562 0.934 0.850 0.222 0.192 0.156 </
       e.clearSelection();
     }
     const getTextToCopy = function(trigger) {
-        const codeEl = trigger.previousElementSibling.cloneNode(true);
-        for (const childEl of codeEl.children) {
-          if (isCodeAnnotation(childEl)) {
-            childEl.remove();
-          }
+      const outerScaffold = trigger.parentElement.cloneNode(true);
+      const codeEl = outerScaffold.querySelector('code');
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
         }
-        return codeEl.innerText;
+      }
+      return codeEl.innerText;
     }
     const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
       text: getTextToCopy

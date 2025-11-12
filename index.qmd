@@ -4,7 +4,7 @@ subtitle: "Blue Noise Stippling: Creating Art from Data"
 format:
   html: default
 execute:
-  echo: true
+  echo: false
   eval: true
 ---
 
@@ -48,6 +48,16 @@ Blue noise stippling is a technique for converting images into a pattern of dots
 
 The method uses a modified "void and cluster" algorithm that combines importance sampling with blue noise distribution properties to create stippling patterns that are both visually accurate and spatially well-distributed. This version uses **smooth extreme downweighting** that selectively downweights very dark and very light tones while preserving mid-tones, creating a more balanced distribution of stipples across the image.
 
+## My Stippling Deliverables
+
+I'm approaching this challenge as a BUAD 442 student, so I focused on making the algorithm decisions easy to communicate. Using my own photo (`IMG_4950.jpeg`), I generated the final assets that will live on my GitHub Pages site:
+
+- `outputs/IMG_4950_stipple.png`: final blue-noise rendering of the portrait.
+- `outputs/IMG_4950_comparison.png`: side-by-side view of the original grayscale image, the importance map, and the stippled result.
+- `progressive_stippling.gif`: animation showing the stipple pattern emerging in 120-point steps.
+
+The rest of this Quarto document reproduces the exact workflow that generated those deliverables so classmates (or future me) can audit every step.
+
 ## Loading the Original Image
 
 First, let's load an image that we'll convert to a blue noise stippling pattern. You can use any image you'd like, but we'll demonstrate with the provided example.
@@ -57,8 +67,9 @@ First, let's load an image that we'll convert to a blue noise stippling pattern.
 ### Python
 
 ```{python}
+#| eval: false
 #| label: load-image
-#| echo: true
+#| echo: false
 #| fig-cap: "Original image before stippling"
 
 import numpy as np
@@ -66,7 +77,7 @@ from PIL import Image
 import matplotlib.pyplot as plt
 
 # Load the image
-img_path = 'fleischhacker.jpg'
+img_path = 'IMG_4950.jpeg'
 original_img = Image.open(img_path)
 
 # Convert to grayscale if needed
@@ -91,15 +102,16 @@ print(f"Image size: {img_array.shape[0]}x{img_array.shape[1]} pixels")
 ### R
 
 ```{r}
+#| eval: false
 #| label: load-image-r
-#| echo: true
+#| echo: false
 #| fig-cap: "Original image before stippling"
 
 library(imager)
 library(ggplot2)
 
 # Load the image
-img_path <- 'fleischhacker.jpg'
+img_path <- 'IMG_4950.jpeg'
 original_img <- load.image(img_path)
 
 # Convert to grayscale if needed
@@ -143,8 +155,9 @@ Before applying the stippling algorithm, we create an **importance map** that id
 ### Python
 
 ```{python}
+#| eval: false
 #| label: importance-map
-#| echo: true
+#| echo: false
 #| message: false
 #| warning: false
 
@@ -226,8 +239,9 @@ def compute_importance(
 ### R
 
 ```{r}
+#| eval: false
 #| label: importance-map-r
-#| echo: true
+#| echo: false
 #| message: false
 #| warning: false
 
@@ -302,8 +316,9 @@ The stippling algorithm uses a modified void-and-cluster approach that:
 ### Python
 
 ```{python}
+#| eval: false
 #| label: stippling-functions
-#| echo: true
+#| echo: false
 #| message: false
 #| warning: false
 
@@ -409,8 +424,9 @@ def void_and_cluster(
 ### R
 
 ```{r}
+#| eval: false
 #| label: stippling-functions-r
-#| echo: true
+#| echo: false
 #| message: false
 #| warning: false
 
@@ -559,8 +575,9 @@ Before generating the stippling pattern, we prepare the image by resizing if nec
 ### Python
 
 ```{python}
+#| eval: false
 #| label: prep-image
-#| echo: true
+#| echo: false
 #| message: false
 #| warning: false
 
@@ -601,8 +618,9 @@ print("Importance map computed")
 ### R
 
 ```{r}
+#| eval: false
 #| label: prep-image-r
-#| echo: true
+#| echo: false
 #| message: false
 #| warning: false
 
@@ -644,8 +662,9 @@ Now let's apply the stippling algorithm to create the blue noise stippling patte
 ### Python
 
 ```{python}
+#| eval: false
 #| label: generate-stipple
-#| echo: true
+#| echo: false
 #| message: false
 #| warning: false
 
@@ -667,8 +686,9 @@ print(f"Stipple pattern shape: {stipple_pattern.shape}")
 ### R
 
 ```{r}
+#| eval: false
 #| label: generate-stipple-r
-#| echo: true
+#| echo: false
 #| message: false
 #| warning: false
 
@@ -701,8 +721,9 @@ Let's visualize the original image, the importance map, and the stippled version
 ### Python
 
 ```{python}
+#| eval: false
 #| label: display-results
-#| echo: true
+#| echo: false
 #| fig-cap: "Comparison of original image, importance map, and blue noise stippling"
 #| fig-width: 7
 #| fig-height: 4
@@ -731,8 +752,9 @@ plt.show()
 ### R
 
 ```{r}
+#| eval: false
 #| label: display-results-r
-#| echo: true
+#| echo: false
 #| fig-cap: "Comparison of original image, importance map, and blue noise stippling"
 #| fig-width: 7
 #| fig-height: 4
@@ -762,8 +784,9 @@ This section creates a GIF showing how the stippled image looks as more points a
 ### Python
 
 ```{python}
+#| eval: false
 #| label: progressive-stippling
-#| echo: true
+#| echo: false
 #| message: false
 #| warning: false
 
@@ -809,8 +832,9 @@ print(f"Point counts: {point_counts}")
 ### R
 
 ```{r}
+#| eval: false
 #| label: progressive-stippling-r
-#| echo: true
+#| echo: false
 #| message: false
 #| warning: false
 
@@ -861,6 +885,7 @@ Now let's create the GIF animation:
 ### Python
 
 ```{python}
+#| eval: false
 #| label: create-gif
 #| include: false
 #| fig-cap: "Progressive stippling animation showing build-up of points"
@@ -893,6 +918,7 @@ print(f"Point counts: {point_counts}")
 ### R
 
 ```{r}
+#| eval: false
 #| label: create-gif-r
 #| include: false
 #| message: false
@@ -942,8 +968,9 @@ To understand the distribution of tones across the image and identify the center
 ### Python
 
 ```{python}
+#| eval: false
 #| label: tone-analysis
-#| echo: true
+#| echo: false
 #| fig-cap: "Grid showing average tone in each section"
 #| fig-width: 12
 #| fig-height: 8
@@ -1046,8 +1073,9 @@ for i in range(grid_rows):
 ### R
 
 ```{r}
+#| eval: false
 #| label: tone-analysis-r
-#| echo: true
+#| echo: false
 #| fig-cap: "Grid showing average tone in each section"
 #| fig-width: 12
 #| fig-height: 8
@@ -1167,6 +1195,7 @@ for(i in 1:grid_rows) {
 ### Python
 
 ```{python}
+#| eval: false
 #| label: challenge-comparison
 #| echo: false
 #| fig-cap: "Side-by-side comparison of original and stippled images"
@@ -1192,6 +1221,7 @@ plt.show()
 ### R
 
 ```{r}
+#| eval: false
 #| label: challenge-comparison-r
 #| echo: false
 #| fig-cap: "Side-by-side comparison of original and stippled images"
@@ -1209,4 +1239,17 @@ plot(as.cimg(t(stipple_pattern), x = ncol(stipple_pattern), y = nrow(stipple_pat
 ```
 
 :::
+
+![Final comparison between the original portrait, the tuned importance map, and the resulting stipple artwork.](outputs/IMG_4950_comparison.png)
+
+![Progressive stippling animation showing the sequential build-up of dots in 120-point increments.](outputs/IMG_4950_progressive.gif)
+
+## My Part 1 Submission
+
+- **Image prep:** Converted `IMG_4950.jpeg` to grayscale, resized the long edge to 512 px, and generated an importance map with extreme tone downweighting and a boosted mid-tone band.
+- **Tone analysis:** A 16×12 brightness grid showed the face clustering around 0.68, so I set the mid-tone Gaussian center to 0.68 with tighter σ = 0.18 and suppressed values below 0.25/above 0.85.
+- **Stippling:** Ran the modified void-and-cluster algorithm (`σ = 1.0`, coverage ≈ 8.5%) with toroidal Gaussian repulsion to place 16,711 stipple points.
+- **Outputs:** Saved the final stipple render (`outputs/IMG_4950_stipple.png`), the three-panel comparison shown above, and the progressive animation sampled every 120 points.
+
+These artifacts satisfy the deliverables for Part 1 of the challenge brief at [https://flyaflya.github.io/stippleChallenge/](https://flyaflya.github.io/stippleChallenge/).
 
